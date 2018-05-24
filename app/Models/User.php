@@ -4,11 +4,38 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * Send the password reset notification.
+     *
+     * @param string $token
+     *
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+    /**
+     * Build the mail representation of the notification.
+     *
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        return (new MailMessage())
+            ->line([
+                trans('base.password_reset.line_1'),
+                trans('base.password_reset.line_2'),
+            ])
+            ->action(trans('base.password_reset.button'), url(config('fadmin.base.route_prefix').'/password/reset', $this->token))
+            ->line(trans('base.password_reset.notice'));
+    }
     /**
      * The attributes that are mass assignable.
      *

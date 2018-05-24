@@ -11,10 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(
+[
+    'middleware' => 'web',
+    'prefix'     => config('fadmin.base.route_prefix'),
+],
+function () {
+    // if not otherwise configured, setup the auth routes
+    if (config('fadmin.base.setup_auth_routes')) {
+        // Authentication Routes...
+        Route::get('login', 'Auth\LoginController@showLoginForm')->name('fadmin.auth.login');
+        Route::post('login', 'Auth\LoginController@login');
+        Route::get('logout', 'Auth\LoginController@logout')->name('fadmin.auth.logout');
+        Route::post('logout', 'Auth\LoginController@logout');
+        // Registration Routes...
+        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('fadmin.auth.register');
+        Route::post('register', 'Auth\RegisterController@register');
+        // Password Reset Routes...
+        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('fadmin.auth.password.reset');
+        Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('fadmin.auth.password.reset.token');
+        Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('fadmin.auth.password.email');
+    }
+    if (config('fadmin.base.setup_dashboard_routes')) {
+        Route::get('dashboard', 'Admin\PagesController@dashboard')->name('fadmin.dashboard');
+        Route::get('/', 'Admin\PagesController@redirect')->name('fadmin');
+    }
+    // if not otherwise configured, setup the "my account" routes
+    if (config('fadmin.base.setup_my_account_routes')) {
+        Route::get('edit-account-info', 'Admin\AccountController@getAccountInfoForm')->name('fadmin.account.info');
+        Route::post('edit-account-info', 'Admin\AccountController@postAccountInfoForm');
+        Route::get('change-password', 'Admin\AccountController@getChangePasswordForm')->name('fadmin.account.password');
+        Route::post('change-password', 'Admin\AccountController@postChangePasswordForm');
+    }
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -6,6 +6,9 @@
  */
 
 require('./bootstrap');
+require('jquery');
+require('admin-lte');
+require('jquery-slimscroll/jquery.slimscroll.min.js');
 
 window.Vue = require('vue');
 
