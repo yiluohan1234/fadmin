@@ -21,7 +21,7 @@
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="sr-only">{{ trans('base.toggle_navigation') }}</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -42,32 +42,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('fadmin.auth.login') }}">Login</a></li>
-                            @if (config('fadmin.base.registration_open'))
-                            <li><a href="{{ route('fadmin.auth.register') }}">Register</a></li>
+                        @if (config('fadmin.base.setup_auth_routes'))
+                            @if (fadmin_auth()->guest())
+                                <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/login') }}">{{ trans('base.login') }}</a></li>
+                                @if (config('fadmin.base.registration_open'))
+                                <li><a href="{{ route('fadmin.auth.register') }}">{{ trans('base.register') }}</a></li>
+                                @endif
+                            @else
+                                <li><a href="{{ route('fadmin.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('base.logout') }}</a></li>
                             @endif
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('fadmin.auth.logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('fadmin.auth.logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
+                        @endif
                     </ul>
                 </div>
             </div>

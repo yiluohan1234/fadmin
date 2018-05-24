@@ -103,12 +103,12 @@
       <!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        @if (config('fadmin.base.show_powered_by'))
+        @if (config('fadmin.base.handcrafted_by'))
             <div class="pull-right hidden-xs">
-              {{ trans('base.powered_by') }} <a target="_blank" href="http://backpackforlaravel.com?ref=panel_footer_link">Backpack for Laravel</a>
+              {{ trans('base.handcrafted_by') }} <a target="_blank" href="{{ config('fadmin.base.developer_link') }}">{{ config('fadmin.base.developer_name') }}</a>.
             </div>
         @endif
-        {{ trans('base.handcrafted_by') }} <a target="_blank" href="{{ config('fadmin.base.developer_link') }}">{{ config('fadmin.base.developer_name') }}</a>.
+            {{ trans('base.powered_by') }} <a target="_blank" href="{{ config('fadmin.base.developer_link') }}">{{ config('fadmin.base.developer_name') }}</a>
       </footer>
     </div>
     <!-- ./wrapper -->
