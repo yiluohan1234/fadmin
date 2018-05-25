@@ -112,6 +112,11 @@
       </footer>
     </div>
     <!-- ./wrapper -->
+
+    @yield('before_scripts')
+    @stack('before_scripts')
+
+
     <script src="/fadmin/jquery/dist/jquery.min.js"></script>
     <script src="/fadmin/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/fadmin/admin-lte/plugins/pace/pace.min.js"></script>
@@ -161,6 +166,9 @@
     </script>
 
     @include('layouts.include.alerts')
+
+    @yield('after_scripts')
+    @stack('after_scripts')
 
 
     <!-- JavaScripts -->

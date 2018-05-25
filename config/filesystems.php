@@ -62,6 +62,16 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        // used for BackupManager
+        'backups' => [
+            'driver' => 'local',
+            'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
+        ],
+        // used for LogManager
+        'storage' => [
+            'driver' => 'local',
+            'root'   => storage_path(),
+        ],
 
     ],
 

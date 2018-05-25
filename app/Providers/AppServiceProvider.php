@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // add the root disk to filesystem configuration
+        app()->config['filesystems.disks.'.config('fadmin.base.root_disk_name')] = [
+            'driver' => 'local',
+            'root'   => base_path(),
+        ];
     }
 
     /**
