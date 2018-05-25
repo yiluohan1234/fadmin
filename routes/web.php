@@ -57,10 +57,28 @@ function () {
 Route::group([
             'middleware' => ['web', fadmin_middleware()],
             'prefix'     => config('base.route_prefix', 'admin'),
-    ], function () {
-        Route::get('log', 'Admin\LogController@index');
-        Route::get('log/preview/{file_name}', 'Admin\LogController@preview');
-        Route::get('log/download/{file_name}', 'Admin\LogController@download');
-        Route::delete('log/delete/{file_name}', 'Admin\LogController@delete');
-    });
+], function () {
+    Route::get('log', 'Admin\LogController@index');
+    Route::get('log/preview/{file_name}', 'Admin\LogController@preview');
+    Route::get('log/download/{file_name}', 'Admin\LogController@download');
+    Route::delete('log/delete/{file_name}', 'Admin\LogController@delete');
+});
 
+/*
+|--------------------------------------------------------------------------
+| Backpack\BackupManager Routes
+|--------------------------------------------------------------------------
+|
+| This file is where you may define all of the routes that are
+| handled by the Backpack\BackupManager package.
+|
+*/
+Route::group([
+    'prefix'     => config('fadmin.base.route_prefix', 'admin'),
+    'middleware' => ['web', 'admin'],
+], function () {
+    Route::get('backup', 'Admin\BackupController@index');
+    Route::put('backup/create', 'Admin\BackupController@create');
+    Route::get('backup/download/{file_name?}', 'Admin\BackupController@download');
+    Route::delete('backup/delete/{file_name?}', 'Admin\BackupController@delete')->where('file_name', '(.*)');
+});

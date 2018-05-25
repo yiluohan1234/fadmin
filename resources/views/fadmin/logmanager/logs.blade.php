@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', trans('logmanager.logs'))
 @section('header')
     <section class="content-header">
       <h1>
