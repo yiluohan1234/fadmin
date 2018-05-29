@@ -1,29 +1,29 @@
-@extends('backpack::layout')
+@extends('layouts.layout')
 
 @section('content-header')
 	<section class="content-header">
 	  <h1>
         <span class="text-capitalize">{{ $crud->entity_name_plural }}</span>
-        <small>{{ ucfirst(trans('backpack::crud.preview')).' '.$crud->entity_name }}.</small>
+        <small>{{ ucfirst(trans('crud.preview')).' '.$crud->entity_name }}.</small>
       </h1>
 	  <ol class="breadcrumb">
-	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
+	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
 	    <li><a href="{{ url($crud->route) }}" class="text-capitalize">{{ $crud->entity_name_plural }}</a></li>
-	    <li class="active">{{ trans('backpack::crud.preview') }}</li>
+	    <li class="active">{{ trans('crud.preview') }}</li>
 	  </ol>
 	</section>
 @endsection
 
 @section('content')
 	@if ($crud->hasAccess('list'))
-		<a href="{{ url($crud->route) }}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a><br><br>
+		<a href="{{ url($crud->route) }}"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a><br><br>
 	@endif
 
 	<!-- Default box -->
 	  <div class="box">
 	    <div class="box-header with-border">
 	      <h3 class="box-title">
-            {{ trans('backpack::crud.preview') }}
+            {{ trans('crud.preview') }}
             <span>{{ $crud->entity_name }}</span>
           </h3>
 	    </div>
@@ -39,13 +39,13 @@
 							@if (!isset($column['type']))
 		                      @include('crud::columns.text')
 		                    @else
-		                      @if(view()->exists('vendor.backpack.crud.columns.'.$column['type']))
-		                        @include('vendor.backpack.crud.columns.'.$column['type'])
+		                      @if(view()->exists('crud.columns.'.$column['type']))
+		                        @include('crud.columns.'.$column['type'])
 		                      @else
-		                        @if(view()->exists('crud::columns.'.$column['type']))
-		                          @include('crud::columns.'.$column['type'])
+		                        @if(view()->exists('crud.columns.'.$column['type']))
+		                          @include('crud.columns.'.$column['type'])
 		                        @else
-		                          @include('crud::columns.text')
+		                          @include('crud.columns.text')
 		                        @endif
 		                      @endif
 		                    @endif
@@ -54,9 +54,9 @@
 		        @endforeach
 				@if ($crud->buttons->where('stack', 'line')->count())
 					<tr>
-						<td><strong>{{ trans('backpack::crud.actions') }}</strong></td>
+						<td><strong>{{ trans('crud.actions') }}</strong></td>
 						<td>
-							@include('crud::inc.button_stack', ['stack' => 'line'])
+							@include('crud.inc.button_stack', ['stack' => 'line'])
 						</td>
 					</tr>
 				@endif
@@ -69,11 +69,11 @@
 
 
 @section('after_styles')
-	<link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/crud.css') }}">
-	<link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/show.css') }}">
+	<link rel="stylesheet" href="/fadmin/crud/css/crud.css">
+	<link rel="stylesheet" href="/fadmin/crud/css/show.css">
 @endsection
 
 @section('after_scripts')
-	<script src="{{ asset('vendor/backpack/crud/js/crud.js') }}"></script>
-	<script src="{{ asset('vendor/backpack/crud/js/show.js') }}"></script>
+	<script src="/fadmin/crud/js/crud.js"></script>
+	<script src="/fadmin/crud/js/show.js"></script>
 @endsection

@@ -2,7 +2,7 @@
 @foreach($revisions as $revisionDate => $dateRevisions)
   <li class="time-label" data-date="{{ date('Y-m-d', strtotime($revisionDate)) }}">
       <span class="bg-red">
-        {{ Date::parse($revisionDate)->format(config('backpack.base.default_date_format')) }}
+        {{ Date::parse($revisionDate)->format(config('fadmin.base.default_date_format')) }}
       </span>
   </li>
 
@@ -12,13 +12,13 @@
     <div class="timeline-item">
       <span class="time"><i class="fa fa-clock-o"></i> {{ date('h:ia', strtotime($history->created_at)) }}</span>
       @if($history->key == 'created_at' && !$history->old_value)
-        <h3 class="timeline-header">{{ $history->userResponsible()?$history->userResponsible()->name:trans('backpack::crud.guest_user') }} {{ trans('backpack::crud.created_this') }} {{ $crud->entity_name }}</h3>
+        <h3 class="timeline-header">{{ $history->userResponsible()?$history->userResponsible()->name:trans('crud.guest_user') }} {{ trans('crud.created_this') }} {{ $crud->entity_name }}</h3>
       @else
-        <h3 class="timeline-header">{{ $history->userResponsible()?$history->userResponsible()->name:trans('backpack::crud.guest_user') }} {{ trans('backpack::crud.changed_the') }} {{ $history->fieldName() }}</h3>
+        <h3 class="timeline-header">{{ $history->userResponsible()?$history->userResponsible()->name:trans('crud.guest_user') }} {{ trans('crud.changed_the') }} {{ $history->fieldName() }}</h3>
         <div class="timeline-body p-b-0">
           <div class="row">
-            <div class="col-md-6">{{ ucfirst(trans('backpack::crud.from')) }}:</div>
-            <div class="col-md-6">{{ ucfirst(trans('backpack::crud.to')) }}:</div>
+            <div class="col-md-6">{{ ucfirst(trans('crud.from')) }}:</div>
+            <div class="col-md-6">{{ ucfirst(trans('crud.to')) }}:</div>
           </div>
           <div class="row">
             <div class="col-md-6"><div class="well well-sm" style="overflow: hidden;">{{ $history->oldValue() }}</div></div>
@@ -29,7 +29,7 @@
           <form method="post" action="{{ url(\Request::url().'/'.$history->id.'/restore') }}">
           {!! csrf_field() !!}
           <button type="submit" class="btn btn-primary btn-sm restore-btn" data-entry-id="{{ $entry->id }}" data-revision-id="{{ $history->id }}" onclick="onRestoreClick(event)">
-            <i class="fa fa-undo"></i> {{ trans('backpack::crud.undo') }}</button>
+            <i class="fa fa-undo"></i> {{ trans('crud.undo') }}</button>
           </form>
         </div>
       @endif
@@ -64,7 +64,7 @@
           // Animate the new revision in (by sliding)
           $('.timeline-item-wrap').first().addClass('fadein');
           new PNotify({
-              text: '{{ trans('backpack::crud.revision_restored') }}',
+              text: '{{ trans('crud.revision_restored') }}',
               type: 'success'
           });
         }

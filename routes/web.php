@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Orgs\Crud\CrudRoute;
 Route::group(
 [
     'middleware' => 'web',
@@ -81,4 +81,22 @@ Route::group([
     Route::put('backup/create', 'Admin\BackupController@create');
     Route::get('backup/download/{file_name?}', 'Admin\BackupController@download');
     Route::delete('backup/delete/{file_name?}', 'Admin\BackupController@delete')->where('file_name', '(.*)');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Backpack\PermissionManager Routes
+|--------------------------------------------------------------------------
+|
+| This file is where you may define all of the routes that are
+| handled by the Backpack\PermissionManager package.
+|
+*/
+Route::group([
+        'prefix'     => config('fadmin.base.route_prefix', 'admin'),
+        'middleware' => ['web', fadmin_middleware()],
+], function () {
+    CRUD::resource('permission', 'Admin\PermissionController');
+    CRUD::resource('role', 'Admin\RoleController');
+    CRUD::resource('user', 'Admin\UserController');
 });

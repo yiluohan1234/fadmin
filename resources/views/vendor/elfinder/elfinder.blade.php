@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'file manager')
+@section('title', trans('base.file_manager'))
 @section('after_scripts')
     <!-- jQuery and jQuery UI (REQUIRED) -->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
@@ -40,11 +40,11 @@
 @section('header')
     <section class="content-header">
       <h1>
-        {{ trans('crud.file_manager') }}
+        {{ trans('base.file_manager') }}
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('fadmin.base.route_prefix')) }}">{{ config('fadmin.base.project_name') }}</a></li>
-        <li class="active">{{ trans('crud.file_manager') }}</li>
+        <li class="active">{{ trans('base.file_manager') }}</li>
       </ol>
     </section>
 @endsection

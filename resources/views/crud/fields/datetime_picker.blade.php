@@ -10,14 +10,14 @@ if (isset($field['value']) && ( $field['value'] instanceof \Carbon\Carbon || $fi
     $field_language = isset($field['datetime_picker_options']['language'])?$field['datetime_picker_options']['language']:\App::getLocale();
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <input type="hidden" name="{{ $field['name'] }}" value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}">
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <div class="input-group date" data-bs-datetimepicker="{{ isset($field['datetime_picker_options']) ? json_encode($field['datetime_picker_options']) : '{}'}}">
         <input
             type="text"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
             >
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -37,17 +37,17 @@ if (isset($field['value']) && ( $field['value'] instanceof \Carbon\Carbon || $fi
 
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css') }}">
+    <link rel="stylesheet" href="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css" />
     @endpush
 
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
-    <script src="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('vendor/adminlte/bower_components/moment/moment.js') }}"></script>
+    <script src="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/fadmin/admin-lte/bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>
     @if ($field_language !== 'en')
-        <script charset="UTF-8" src="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'.$field_language.'.min.js') }}"></script>
+        <script charset="UTF-8" src="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'.$field_language.'.min.js"></script>
         <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/{{$field_language}}.js"></script>
     @endif
     <script>

@@ -25,7 +25,7 @@
     }
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <input class="datepicker-range-start" type="hidden" name="{{ $field['start_name'] }}" value="{{ old($field['start_name']) ? old($field['start_name']) : (isset($start_name) ? $start_name : (isset($field['start_default']) ? $field['start_default'] : '' )) }}">
     <input class="datepicker-range-end" type="hidden" name="{{ $field['end_name'] }}" value="{{ old($field['end_name']) ? old($field['end_name']) : (!empty($end_name) ? $end_name : (isset($field['end_default']) ? $field['end_default'] : '' )) }}">
     <label>{!! $field['label'] !!}</label>
@@ -33,7 +33,7 @@
         <input
             data-bs-daterangepicker="{{ isset($field['date_range_options']) ? json_encode($field['date_range_options']) : '{}'}}"
             type="text"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
             >
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -53,13 +53,13 @@
 
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')
-    <link rel="stylesheet" href="{{ asset('/vendor/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="/fadmin/admin-lte/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     @endpush
 
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
-    <script src="{{ asset('/vendor/adminlte/bower_components/moment/moment.js') }}"></script>
-    <script src="{{ asset('/vendor/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="/fadmin/admin-lte/bower_components/moment/moment.js"></script>
+    <script src="/fadmin/admin-lte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script>
         jQuery(document).ready(function($){
             $('[data-bs-daterangepicker]').each(function(){

@@ -57,6 +57,7 @@ class CrudController extends BaseController
         $this->data['crud'] = $this->crud;
         $this->data['title'] = ucfirst($this->crud->entity_name_plural);
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        // dd($this->data);
         return view($this->crud->getListView(), $this->data);
     }
     /**
@@ -73,6 +74,7 @@ class CrudController extends BaseController
         $this->data['fields'] = $this->crud->getCreateFields();
         $this->data['title'] = trans('crud.add').' '.$this->crud->entity_name;
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        // dd($this->data);
         return view($this->crud->getCreateView(), $this->data);
     }
     /**

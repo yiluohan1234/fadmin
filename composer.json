@@ -16,6 +16,7 @@
         "mews/captcha": "~2.0",
         "prologue/alerts": "^0.4.2",
         "spatie/laravel-backup": "^5.7",
+        "spatie/laravel-permission": "^1.4",
         "venturecraft/revisionable": "1.*"
     },
     "require-dev": {

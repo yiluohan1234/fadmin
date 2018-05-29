@@ -1,14 +1,14 @@
 <!-- select -->
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
 
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
 
     <?php $entity_model = $crud->getRelationModel($field['entity'],  - 1); ?>
     <select
         name="{{ $field['name'] }}"
-        @include('crud::inc.field_attributes')
+        @include('crud.inc.field_attributes')
         >
 
         @if ($entity_model::isColumnNullable($field['name']))

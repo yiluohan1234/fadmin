@@ -9,9 +9,9 @@ if (isset($field['value']) && (is_array($field['value']) || is_object($field['va
 
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <input type="hidden" value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}" name="{{ $field['name'] }}">
 
     @if(isset($field['prefix']) || isset($field['suffix'])) <div class="input-group"> @endif
@@ -20,7 +20,7 @@ if (isset($field['value']) && (is_array($field['value']) || is_object($field['va
         <input
             type="text"
             data-address="{&quot;field&quot;: &quot;{{$field['name']}}&quot;, &quot;full&quot;: {{isset($field['store_as_json']) && $field['store_as_json'] ? 'true' : 'false'}} }"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
         >
         @else
         <input
@@ -28,7 +28,7 @@ if (isset($field['value']) && (is_array($field['value']) || is_object($field['va
             data-address="{&quot;field&quot;: &quot;{{$field['name']}}&quot;, &quot;full&quot;: {{isset($field['store_as_json']) && $field['store_as_json'] ? 'true' : 'false'}} }"
             name="{{ $field['name'] }}"
             value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
         >
         @endif
         @if(isset($field['suffix'])) <div class="input-group-addon">{!! $field['suffix'] !!}</div> @endif

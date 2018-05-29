@@ -20,7 +20,7 @@
     }
 
 ?>
-<div ng-app="backPackTableApp" ng-controller="tableController" @include('crud::inc.field_wrapper_attributes') >
+<div ng-app="backPackTableApp" ng-controller="tableController" @include('crud.inc.field_wrapper_attributes') >
 
     <label>{!! $field['label'] !!}</label>
     @include('crud::inc.field_translatable_icon')
@@ -66,7 +66,7 @@
         </table>
 
         <div class="array-controls btn-group m-t-10">
-            <button ng-if="max == -1 || items.length < max" class="btn btn-sm btn-default" type="button" ng-click="addItem()"><i class="fa fa-plus"></i> {{trans('backpack::crud.add')}} {{ $item_name }}</button>
+            <button ng-if="max == -1 || items.length < max" class="btn btn-sm btn-default" type="button" ng-click="addItem()"><i class="fa fa-plus"></i> {{trans('crud.add')}} {{ $item_name }}</button>
         </div>
 
     </div>
@@ -95,7 +95,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.14.3/sortable.min.js"></script>
         <script>
-          
+
             window.angularApp = window.angularApp || angular.module('backPackTableApp', ['ui.sortable'], function($interpolateProvider){
                 $interpolateProvider.startSymbol('<%');
                 $interpolateProvider.endSymbol('%>');

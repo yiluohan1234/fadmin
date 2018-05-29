@@ -9,11 +9,11 @@
     }
 @endphp
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
 
     <div>
         <label>{!! $field['label'] !!}</label>
-        @include('crud::inc.field_translatable_icon')
+        @include('crud.inc.field_translatable_icon')
     </div>
 
     @if( isset($field['options']) && $field['options'] = (array)$field['options'] )
@@ -28,7 +28,7 @@
                         id="{{$field['name']}}_{{$optionPointer}}"
                         name="{{$field['name']}}"
                         value="{{$value}}"
-                        @include('crud::inc.field_attributes')
+                        @include('crud.inc.field_attributes')
                         {{$optionValue == $value ? ' checked': ''}}
                         > {!! $label !!}
             </label>

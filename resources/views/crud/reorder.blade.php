@@ -1,15 +1,15 @@
-@extends('backpack::layout')
+@extends('layouts.layout')
 
 @section('header')
 <section class="content-header">
     <h1>
         <span class="text-capitalize">{{ $crud->entity_name_plural }}</span>
-        <small>{{ trans('backpack::crud.reorder').' '.$crud->entity_name_plural }}.</small>
+        <small>{{ trans('crud.reorder').' '.$crud->entity_name_plural }}.</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
+        <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
         <li><a href="{{ url($crud->route) }}" class="text-capitalize">{{ $crud->entity_name_plural }}</a></li>
-        <li class="active">{{ trans('backpack::crud.reorder') }}</li>
+        <li class="active">{{ trans('crud.reorder') }}</li>
     </ol>
 </section>
 @endsection
@@ -55,19 +55,19 @@ function tree_element($entry, $key, $all_entries, $crud)
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
     @if ($crud->hasAccess('list'))
-        <a href="{{ url($crud->route) }}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a><br><br>
+        <a href="{{ url($crud->route) }}"><i class="fa fa-angle-double-left"></i> {{ trans('crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a><br><br>
     @endif
 
         <!-- Default box -->
         <div class="box">
 
             <div class="box-header with-border">
-                <h3 class="box-title">{{ trans('backpack::crud.reorder').' '.$crud->entity_name_plural }}</h3>
+                <h3 class="box-title">{{ trans('crud.reorder').' '.$crud->entity_name_plural }}</h3>
             </div>
 
             <div class="box-body">
 
-                <p>{{ trans('backpack::crud.reorder_text') }}</p>
+                <p>{{ trans('crud.reorder_text') }}</p>
 
                 <ol class="sortable">
                 <?php
@@ -81,7 +81,7 @@ function tree_element($entry, $key, $all_entries, $crud)
                 ?>
                 </ol>
 
-                <button id="toArray" class="btn btn-success ladda-button" data-style="zoom-in"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('backpack::crud.save') }}</span></button>
+                <button id="toArray" class="btn btn-success ladda-button" data-style="zoom-in"><span class="ladda-label"><i class="fa fa-save"></i> {{ trans('crud.save') }}</span></button>
 
             </div><!-- /.box-body -->
         </div><!-- /.box -->
@@ -91,16 +91,16 @@ function tree_element($entry, $key, $all_entries, $crud)
 
 
 @section('after_styles')
-<link rel="stylesheet" href="{{ asset('vendor/backpack/nestedSortable/nestedSortable.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/crud.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/reorder.css') }}">
+<link rel="stylesheet" href="/fadmin/nestedSortable/nestedSortable.css">
+<link rel="stylesheet" href="/fadmin/crud/css/crud.css">
+<link rel="stylesheet" href="/fadmin/crud/css/reorder.css">
 @endsection
 
 @section('after_scripts')
-<script src="{{ asset('vendor/backpack/crud/js/crud.js') }}"></script>
-<script src="{{ asset('vendor/backpack/crud/js/reorder.js') }}"></script>
+<script src="/fadmin/crud/js/crud.js"></script>
+<script src="/fadmin/crud/js/reorder.js"></script>
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript"></script>
-<script src="{{ url('vendor/backpack/nestedSortable/jquery.mjs.nestedSortable2.js') }}" type="text/javascript"></script>
+<script src="/fadmin/nestedSortable/jquery.mjs.nestedSortable2.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function($) {
@@ -144,16 +144,16 @@ function tree_element($entry, $key, $all_entries, $crud)
         .done(function() {
             //console.log("success");
             new PNotify({
-                        title: "{{ trans('backpack::crud.reorder_success_title') }}",
-                        text: "{{ trans('backpack::crud.reorder_success_message') }}",
+                        title: "{{ trans('crud.reorder_success_title') }}",
+                        text: "{{ trans('crud.reorder_success_message') }}",
                         type: "success"
                     });
           })
         .fail(function() {
             //console.log("error");
             new PNotify({
-                        title: "{{ trans('backpack::crud.reorder_error_title') }}",
-                        text: "{{ trans('backpack::crud.reorder_error_message') }}",
+                        title: "{{ trans('crud.reorder_error_title') }}",
+                        text: "{{ trans('crud.reorder_error_message') }}",
                         type: "danger"
                     });
           })

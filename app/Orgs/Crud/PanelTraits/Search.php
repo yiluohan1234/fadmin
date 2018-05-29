@@ -107,7 +107,7 @@ trait Search
 
         // add the buttons as the last column
         if ($this->buttons->where('stack', 'line')->count()) {
-            $row_items[] = \View::make('crud::inc.button_stack', ['stack' => 'line'])
+            $row_items[] = \View::make('crud.inc.button_stack', ['stack' => 'line'])
                                 ->with('crud', $this)
                                 ->with('entry', $entry)
                                 ->render();
@@ -115,7 +115,7 @@ trait Search
 
         // add the details_row button to the first column
         if ($this->details_row) {
-            $details_row_button = \View::make('crud::columns.details_row_button')
+            $details_row_button = \View::make('crud.columns.details_row_button')
                                            ->with('crud', $this)
                                            ->with('entry', $entry)
                                            ->render();
@@ -155,11 +155,11 @@ trait Search
             }
 
             // return the column from the package
-            return 'crud::columns.'.$column['type'];
+            return 'crud.columns.'.$column['type'];
         }
 
         // fallback to text column
-        return 'crud::columns.text';
+        return 'crud.columns.text';
     }
 
     /**
@@ -172,7 +172,7 @@ trait Search
     private function renderCellView($view, $column, $entry)
     {
         if (! view()->exists($view)) {
-            $view = 'crud::columns.text'; // fallback to text column
+            $view = 'crud.columns.text'; // fallback to text column
         }
 
         return \View::make($view)

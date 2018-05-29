@@ -1,11 +1,11 @@
 <!-- Simple MDE - Markdown Editor -->
 <div @include('crud::inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <textarea
     	id="simplemde_{{ $field['name'] }}"
         name="{{ $field['name'] }}"
-        @include('crud::inc.field_attributes', ['default_class' => 'form-control'])
+        @include('crud.inc.field_attributes', ['default_class' => 'form-control'])
     	>{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}</textarea>
 
     {{-- HINT --}}

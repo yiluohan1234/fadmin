@@ -6,7 +6,7 @@
         {{ trans('logmanager.log_manager') }}<small>{{ trans('logmanager.log_manager_description') }}</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(config('fadmin.base.route_prefix'),'dashboard') }}">{{ trans('crud.admin') }}</a></li>
+        <li><a href="{{ url(config('fadmin.base.route_prefix'),'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
         <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/log') }}">{{ trans('logmanager.log_manager') }}</a></li>
         <li class="active">{{ trans('logmanager.existing_logs') }}</li>
       </ol>

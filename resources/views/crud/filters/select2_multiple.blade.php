@@ -33,8 +33,8 @@
 
 @push('crud_list_styles')
     <!-- include select2 css-->
-    <link href="{{ asset('vendor/backpack/select2/select2.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('vendor/backpack/select2/select2-bootstrap-dick.css') }}" rel="stylesheet" type="text/css" />
+    <link href="/fadmin//select2/select2.css" rel="stylesheet" type="text/css" />
+    <link href="/fadmin//select2/select2-bootstrap-dick.css" rel="stylesheet" type="text/css" />
     <style>
 	  .form-inline .select2-container {
 	    display: inline-block;
@@ -58,7 +58,7 @@
 
 @push('crud_list_scripts')
 	<!-- include select2 js-->
-    <script src="{{ asset('vendor/backpack/select2/select2.js') }}"></script>
+    <script src="/fadmin//select2/select2.js"></script>
     <script>
         jQuery(document).ready(function($) {
             // trigger select2 for each untriggered select2 box

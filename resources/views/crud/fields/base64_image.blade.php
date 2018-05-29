@@ -1,7 +1,7 @@
-  <div class="form-group col-md-12 image" data-preview="#{{ $field['name'] }}" data-aspectRatio="{{ isset($field['aspect_ratio']) ? $field['aspect_ratio'] : 0 }}" data-crop="{{ isset($field['crop']) ? $field['crop'] : false }}" @include('crud::inc.field_wrapper_attributes')>
+  <div class="form-group col-md-12 image" data-preview="#{{ $field['name'] }}" data-aspectRatio="{{ isset($field['aspect_ratio']) ? $field['aspect_ratio'] : 0 }}" data-crop="{{ isset($field['crop']) ? $field['crop'] : false }}" @include('crud.inc.field_wrapper_attributes')>
     <div>
         <label>{!! $field['label'] !!}</label>
-        @include('crud::inc.field_translatable_icon')
+        @include('crud.inc.field_translatable_icon')
     </div>
     <!-- Wrap the image or canvas element with a block element (container) -->
     <div class="row">
@@ -31,7 +31,7 @@
     </div>
     <div class="btn-group">
         <label class="btn btn-primary btn-file">
-            Choose file <input type="file" accept="image/*" id="uploadImage" @include('crud::inc.field_attributes', ['default_class' => 'hide'])>
+            Choose file <input type="file" accept="image/*" id="uploadImage" @include('crud.inc.field_attributes', ['default_class' => 'hide'])>
             <input type="hidden" id="hiddenImage" name="{{ $field['name'] }}">
         </label>
         @if(isset($field['crop']) && $field['crop'])
@@ -59,7 +59,7 @@
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')
         {{-- YOUR CSS HERE --}}
-        <link href="{{ asset('vendor/backpack/cropper/dist/cropper.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="/fadmin/cropper/dist/cropper.min.css" rel="stylesheet" type="text/css" />
         <style>
             .hide {
                 display: none;
@@ -110,7 +110,7 @@
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
         {{-- YOUR JS HERE --}}
-        <script src="{{ asset('vendor/backpack/cropper/dist/cropper.min.js') }}"></script>
+        <script src="/fadmin/cropper/dist/cropper.min.js"></script>
         <script>
             jQuery(document).ready(function($) {
                 // Loop through all instances of the image field

@@ -8,14 +8,14 @@ if (isset($field['value']) && ( $field['value'] instanceof \Carbon\Carbon || $fi
 }
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <input
         type="datetime-local"
         name="{{ $field['name'] }}"
         value="{{ strftime('%Y-%m-%dT%H:%M:%S', strtotime(old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )))) }}"
-        @include('crud::inc.field_attributes')
+        @include('crud.inc.field_attributes')
         >
 
     {{-- HINT --}}

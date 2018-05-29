@@ -2,28 +2,29 @@
 <input type="hidden" name="locale" value={{ $crud->request->input('locale')?$crud->request->input('locale'):App::getLocale() }}>
 @endif
 
+
 {{-- See if we're using tabs --}}
 @if ($crud->tabsEnabled())
-    @include('crud::inc.show_tabbed_fields')
+    @include('crud.inc.show_tabbed_fields')
 @else
-    @include('crud::inc.show_fields', ['fields' => $fields])
+    @include('crud.inc.show_fields', ['fields' => $fields])
 @endif
 
 {{-- Define blade stacks so css and js can be pushed from the fields to these sections. --}}
 
 @section('after_styles')
-    <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/crud.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/form.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/'.$action.'.css') }}">
+    <link rel="stylesheet" href="/fadmin/crud/css/crud.css">
+    <link rel="stylesheet" href="/fadmin/crud/css/form.css">
+    <link rel="stylesheet" href="{{ asset('/fadmin/crud/css/'.$action.'.css') }}">
 
     <!-- CRUD FORM CONTENT - crud_fields_styles stack -->
     @stack('crud_fields_styles')
 @endsection
 
 @section('after_scripts')
-    <script src="{{ asset('vendor/backpack/crud/js/crud.js') }}"></script>
-    <script src="{{ asset('vendor/backpack/crud/js/form.js') }}"></script>
-    <script src="{{ asset('vendor/backpack/crud/js/'.$action.'.js') }}"></script>
+    <script src="/fadmin/crud/js/crud.js"></script>
+    <script src="/fadmin/crud/js/form.js"></script>
+    <script src="{{ asset('/fadmin/crud/js/'.$action.'.js') }}"></script>
 
     <!-- CRUD FORM CONTENT - crud_fields_scripts stack -->
     @stack('crud_fields_scripts')

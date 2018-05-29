@@ -13,108 +13,134 @@ return [
     |
     */
 
-    // Create form
-    'add'                 => '新增',
-    'back_to_all'         => '回到所有 ',
-    'cancel'              => '取消',
-    'add_a_new'           => '新增一个 ',
+    // Forms
+    'save_action_save_and_new' => 'Save and new item',
+    'save_action_save_and_edit' => 'Save and edit this item',
+    'save_action_save_and_back' => 'Save and back',
+    'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
 
-    // Create form - advanced options
-    'after_saving'            => '新增后',
-    'go_to_the_table_view'    => '回到总表',
-    'let_me_add_another_item' => '新增另一个记录',
-    'edit_the_new_item'       => '编辑这个记录',
+    // Create form
+    'add'                 => 'Add',
+    'back_to_all'         => 'Back to all ',
+    'cancel'              => 'Cancel',
+    'add_a_new'           => 'Add a new ',
 
     // Edit form
-    'edit'                 => '编辑',
-    'save'                 => '存储',
+    'edit'                 => 'Edit',
+    'save'                 => 'Save',
 
     // Revisions
-    'revisions'            => '修顶版本',
-    'no_revisions'         => '找不到修订版本',
-    'created_this'         => '建立的',
-    'changed_the'          => '更改了',
-    'restore_this_value'   => '还原这个值',
-    'from'                 => '由',
-    'to'                   => '到',
-    'undo'                 => '撤销',
-    'revision_restored'    => '成功恢复修订版本',
+    'revisions'            => 'Revisions',
+    'no_revisions'         => 'No revisions found',
+    'created_this'         => 'created this',
+    'changed_the'          => 'changed the',
+    'restore_this_value'   => 'Restore this value',
+    'from'                 => 'from',
+    'to'                   => 'to',
+    'undo'                 => 'Undo',
+    'revision_restored'    => 'Revision successfully restored',
+    'guest_user'           => 'Guest User',
+
+    // Translatable models
+    'edit_translations' => 'EDIT TRANSLATIONS',
+    'language'          => 'Language',
 
     // CRUD table view
-    'all'                       => '全部 ',
-    'in_the_database'           => '',
-    'list'                      => '列表',
-    'actions'                   => '操作',
-    'preview'                   => '预览',
-    'delete'                    => '删除',
-    'admin'                     => '管理員',
-    'details_row'               => '这是详情列。你可以在这里做出编辑。',
-    'details_row_loading_error' => '加载详情时出错。请重试。',
+    'all'                       => 'All ',
+    'in_the_database'           => 'in the database',
+    'list'                      => 'List',
+    'actions'                   => 'Actions',
+    'preview'                   => 'Preview',
+    'delete'                    => 'Delete',
+    'admin'                     => 'Admin',
+    'details_row'               => 'This is the details row. Modify as you please.',
+    'details_row_loading_error' => 'There was an error loading the details. Please retry.',
 
-    // Confirmation messages and bubbles
-    'delete_confirm'                              => '你确定要删除这条记录吗？',
-    'delete_confirmation_title'                   => '记录已被删除',
-    'delete_confirmation_message'                 => '这条记录已被成功删除。',
-    'delete_confirmation_not_title'               => '记录未被删除',
-    'delete_confirmation_not_message'             => '尝试删除时发生错误。这项记录或未被成功删除。',
-    'delete_confirmation_not_deleted_title'       => '记录未被删除',
-    'delete_confirmation_not_deleted_message'     => '沒有任何事情发生过。你的这条记录纹丝未动。',
+        // Confirmation messages and bubbles
+        'delete_confirm'                              => 'Are you sure you want to delete this item?',
+        'delete_confirmation_title'                   => 'Item Deleted',
+        'delete_confirmation_message'                 => 'The item has been deleted successfully.',
+        'delete_confirmation_not_title'               => 'NOT deleted',
+        'delete_confirmation_not_message'             => "There's been an error. Your item might not have been deleted.",
+        'delete_confirmation_not_deleted_title'       => 'Not deleted',
+        'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
 
-    // DataTables translation
-    'emptyTable'     => '数据库中没有相关记录',
-    'info'           => '正在显示 _TOTAL_ 个记录中的 _START_ 至 _END_ 项',
-    'infoEmpty'      => '正在显示 0 个记录中的 0 至 0 项',
-    'infoFiltered'   => '(自 _TOTAL_ 个记录中筛选出来的记录)',
-    'infoPostFix'    => '',
-    'thousands'      => ',',
-    'lengthMenu'     => '每页 _MENU_ 条记录',
-    'loadingRecords' => '加载中...',
-    'processing'     => '处理中...',
-    'search'         => '搜索: ',
-    'zeroRecords'    => '找不到相关记录',
-    'paginate'       => [
-        'first'    => '首页',
-        'last'     => '尾页',
-        'next'     => '下一页',
-        'previous' => '上一页',
-    ],
-    'aria' => [
-        'sortAscending'  => ': 增序排列',
-        'sortDescending' => ': 降序排列',
-    ],
+        'ajax_error_title' => 'Error',
+        'ajax_error_text'  => 'Error loading page. Please refresh the page.',
+
+        // DataTables translation
+        'emptyTable'     => 'No data available in table',
+        'info'           => 'Showing _START_ to _END_ of _TOTAL_ entries',
+        'infoEmpty'      => 'Showing 0 to 0 of 0 entries',
+        'infoFiltered'   => '(filtered from _MAX_ total entries)',
+        'infoPostFix'    => '',
+        'thousands'      => ',',
+        'lengthMenu'     => '_MENU_ records per page',
+        'loadingRecords' => 'Loading...',
+        'processing'     => 'Processing...',
+        'search'         => 'Search: ',
+        'zeroRecords'    => 'No matching records found',
+        'paginate'       => [
+            'first'    => 'First',
+            'last'     => 'Last',
+            'next'     => 'Next',
+            'previous' => 'Previous',
+        ],
+        'aria' => [
+            'sortAscending'  => ': activate to sort column ascending',
+            'sortDescending' => ': activate to sort column descending',
+        ],
+        'export' => [
+            'copy'              => 'Copy',
+            'excel'             => 'Excel',
+            'csv'               => 'CSV',
+            'pdf'               => 'PDF',
+            'print'             => 'Print',
+            'column_visibility' => 'Column visibility',
+        ],
 
     // global crud - errors
-    'unauthorized_access' => '您沒有权限浏览此页面。',
-    'please_fix' => '请修正以下错误：',
+        'unauthorized_access' => 'Unauthorized access - you do not have the necessary permissions to see this page.',
+        'please_fix' => 'Please fix the following errors:',
 
     // global crud - success / error notification bubbles
-    'insert_success' => '插入成功。',
-    'update_success' => '更新成功。',
+        'insert_success' => 'The item has been added successfully.',
+        'update_success' => 'The item has been modified successfully.',
 
     // CRUD reorder view
-    'reorder'                      => '重新排序',
-    'reorder_text'                 => '请以拖放 (drag and drop) 的放式重新排序。',
-    'reorder_success_title'        => '完成',
-    'reorder_success_message'      => '你的排序已被儲存。',
-    'reorder_error_title'          => '错误',
-    'reorder_error_message'        => '你的排序尚未被儲存。',
+        'reorder'                      => 'Reorder',
+        'reorder_text'                 => 'Use drag&drop to reorder.',
+        'reorder_success_title'        => 'Done',
+        'reorder_success_message'      => 'Your order has been saved.',
+        'reorder_error_title'          => 'Error',
+        'reorder_error_message'        => 'Your order has not been saved.',
 
     // CRUD yes/no
-    'yes' => 'Yes',
-    'no' => 'No',
+        'yes' => 'Yes',
+        'no' => 'No',
+
+    // CRUD filters navbar view
+        'filters' => 'Filters',
+        'toggle_filters' => 'Toggle filters',
+        'remove_filters' => 'Remove filters',
 
     // Fields
-    'browse_uploads' => '查看已上传的文档',
-    'clear' => '清除',
-    'page_link' => '页面链接',
-    'page_link_placeholder' => 'http://example.com/your-desired-page',
-    'internal_link' => '内部链接',
-    'internal_link_placeholder' => '内部链接，例如: \'admin/page\' (no quotes) for \':url\'',
-    'external_link' => '外部链接',
-    'choose_file' => '选择文件',
+        'browse_uploads' => 'Browse uploads',
+        'select_all' => 'Select All',
+        'select_files' => 'Select files',
+        'select_file' => 'Select file',
+        'clear' => 'Clear',
+        'page_link' => 'Page link',
+        'page_link_placeholder' => 'http://example.com/your-desired-page',
+        'internal_link' => 'Internal link',
+        'internal_link_placeholder' => 'Internal slug. Ex: \'admin/page\' (no quotes) for \':url\'',
+        'external_link' => 'External link',
+        'choose_file' => 'Choose file',
 
     //Table field
-    'table_cant_add' => '不能再增加 :entity',
-    'table_max_reached' => '已达到 :max 条记录的上限',
+        'table_cant_add' => 'Cannot add new :entity',
+        'table_max_reached' => 'Maximum number of :max reached',
 
+    // File manager
+    //'file_manager' => 'File Manager',
 ];

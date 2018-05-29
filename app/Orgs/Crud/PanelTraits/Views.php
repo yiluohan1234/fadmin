@@ -4,14 +4,14 @@ namespace App\Orgs\Crud\PanelTraits;
 
 trait Views
 {
-    protected $createView = 'crud::create';
-    protected $editView = 'crud::edit';
-    protected $showView = 'crud::show';
-    protected $detailsRowView = 'crud::details_row';
-    protected $revisionsView = 'crud::revisions';
-    protected $revisionsTimelineView = 'crud::inc.revision_timeline';
-    protected $reorderView = 'crud::reorder';
-    protected $listView = 'crud::list';
+    protected $createView = 'crud.create';
+    protected $editView = 'crud.edit';
+    protected $showView = 'crud.show';
+    protected $detailsRowView = 'crud.details_row';
+    protected $revisionsView = 'crud.revisions';
+    protected $revisionsTimelineView = 'crud.inc.revision_timeline';
+    protected $reorderView = 'crud.reorder';
+    protected $listView = 'crud.list';
 
     // -------
     // CREATE

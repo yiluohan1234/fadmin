@@ -1,5 +1,5 @@
 @if ($crud->hasAccess('delete'))
-	<a href="javascript:void(0)" onclick="deleteEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey()) }}" class="btn btn-xs btn-default" data-button-type="delete"><i class="fa fa-trash"></i> {{ trans('backpack::crud.delete') }}</a>
+	<a href="javascript:void(0)" onclick="deleteEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey()) }}" class="btn btn-xs btn-default" data-button-type="delete"><i class="fa fa-trash"></i> {{ trans('crud.delete') }}</a>
 @endif
 
 <script>
@@ -13,15 +13,15 @@
 	      var route = button.attr('data-route');
 	      var row = $("#crudTable a[data-route='"+route+"']").parentsUntil('tr').parent();
 
-	      if (confirm("{{ trans('backpack::crud.delete_confirm') }}") == true) {
+	      if (confirm("{{ trans('crud.delete_confirm') }}") == true) {
 	          $.ajax({
 	              url: route,
 	              type: 'DELETE',
 	              success: function(result) {
 	                  // Show an alert with the result
 	                  new PNotify({
-	                      title: "{{ trans('backpack::crud.delete_confirmation_title') }}",
-	                      text: "{{ trans('backpack::crud.delete_confirmation_message') }}",
+	                      title: "{{ trans('crud.delete_confirmation_title') }}",
+	                      text: "{{ trans('crud.delete_confirmation_message') }}",
 	                      type: "success"
 	                  });
 
@@ -34,8 +34,8 @@
 	              error: function(result) {
 	                  // Show an alert with the result
 	                  new PNotify({
-	                      title: "{{ trans('backpack::crud.delete_confirmation_not_title') }}",
-	                      text: "{{ trans('backpack::crud.delete_confirmation_not_message') }}",
+	                      title: "{{ trans('crud.delete_confirmation_not_title') }}",
+	                      text: "{{ trans('crud.delete_confirmation_not_message') }}",
 	                      type: "warning"
 	                  });
 	              }
@@ -43,8 +43,8 @@
 	      } else {
 	      	  // Show an alert telling the user we don't know what went wrong
 	          new PNotify({
-	              title: "{{ trans('backpack::crud.delete_confirmation_not_deleted_title') }}",
-	              text: "{{ trans('backpack::crud.delete_confirmation_not_deleted_message') }}",
+	              title: "{{ trans('crud.delete_confirmation_not_deleted_title') }}",
+	              text: "{{ trans('crud.delete_confirmation_not_deleted_message') }}",
 	              type: "info"
 	          });
 	      }
@@ -54,3 +54,4 @@
 	// make it so that the function above is run after each DataTable draw event
 	// crud.addFunctionToDataTablesDrawEventQueue('deleteEntry');
 </script>
+

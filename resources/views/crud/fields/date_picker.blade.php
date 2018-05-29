@@ -10,15 +10,15 @@
     $field_language = isset($field['date_picker_options']['language'])?$field['date_picker_options']['language']:\App::getLocale();
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <input type="hidden" name="{{ $field['name'] }}" value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}">
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <div class="input-group date">
         <input
             data-bs-datepicker="{{ isset($field['date_picker_options']) ? json_encode($field['date_picker_options']) : '{}'}}"
             type="text"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
             >
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -38,14 +38,14 @@
 
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}">
+    <link rel="stylesheet" href="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
     @endpush
 
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
-    <script src="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     @if ($field_language !== 'en')
-        <script charset="UTF-8" src="{{ asset('vendor/adminlte/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'.$field_language.'.min.js') }}"></script>
+        <script charset="UTF-8" src="/fadmin/admin-lte/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'.$field_language.'.min.js"></script>
     @endif
     <script>
         if (jQuery.ui) {

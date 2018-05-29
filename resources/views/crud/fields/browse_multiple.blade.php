@@ -15,7 +15,7 @@ if (!$multiple && is_array($value)) {
         @foreach((array)$value as $v)
             @if ($v)
                 <div class="input-group input-group-sm">
-                    <input type="text" name="{{ $field['name'] }}[]" value="{{ $v }}" @include('crud::inc.field_attributes') readonly>
+                    <input type="text" name="{{ $field['name'] }}[]" value="{{ $v }}" @include('crud.inc.field_attributes') readonly>
                     <div class="input-group-btn">
                         <button type="button" class="browse_{{ $field['name'] }} remove btn btn-default">
                             <i class="fa fa-trash"></i>
@@ -25,17 +25,17 @@ if (!$multiple && is_array($value)) {
             @endif
         @endforeach
     @else
-        <input type="text" name="{{ $field['name'] }}" value="{{ $value }}" @include('crud::inc.field_attributes') readonly>
+        <input type="text" name="{{ $field['name'] }}" value="{{ $value }}" @include('crud.inc.field_attributes') readonly>
     @endif
 
     <div class="btn-group" role="group" aria-label="..." style="margin-top: 3px;">
         <button type="button" class="browse_{{ $field['name'] }} popup btn btn-default">
             <i class="fa fa-cloud-upload"></i>
-            {{ trans('backpack::crud.browse_uploads') }}
+            {{ trans('crud.browse_uploads') }}
         </button>
         <button type="button" class="browse_{{ $field['name'] }} clear btn btn-default">
             <i class="fa fa-eraser"></i>
-            {{ trans('backpack::crud.clear') }}
+            {{ trans('crud.clear') }}
         </button>
     </div>
 
@@ -47,7 +47,7 @@ if (!$multiple && is_array($value)) {
 
 <script type="text/html" id="browse_multiple_template_{{ $field['name'] }}">
     <div class="input-group input-group-sm">
-        <input type="text" name="{{ $field['name'] }}[]" @include('crud::inc.field_attributes') readonly>
+        <input type="text" name="{{ $field['name'] }}[]" @include('crud.inc.field_attributes') readonly>
         <div class="input-group-btn">
             <button type="button" class="browse_{{ $field['name'] }} remove btn btn-default">
                 <i class="fa fa-trash"></i>
@@ -67,7 +67,7 @@ if (!$multiple && is_array($value)) {
               href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('packages/barryvdh/elfinder/css/elfinder.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('packages/barryvdh/elfinder/css/theme.css') }}">
-        <link href="{{ asset('vendor/backpack/colorbox/example2/colorbox.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="/fadmin/colorbox/example2/colorbox.css" rel="stylesheet" type="text/css"/>
         <style>
             #cboxContent, #cboxLoadedContent, .cboxIframe {
                 background: transparent;

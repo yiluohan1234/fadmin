@@ -1,14 +1,14 @@
 <!-- configurable color picker -->
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <div class="input-group colorpicker-component">
 
         <input
         	type="text"
         	name="{{ $field['name'] }}"
             value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
         	>
         <div class="input-group-addon">
             <i class="color-preview-{{ $field['name'] }}"></i>

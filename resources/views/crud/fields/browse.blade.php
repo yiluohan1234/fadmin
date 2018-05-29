@@ -1,25 +1,25 @@
 <!-- browse server input -->
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
 
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
 	<input
 		type="text"
 		id="{{ $field['name'] }}-filemanager"
 
 		name="{{ $field['name'] }}"
         value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}"
-        @include('crud::inc.field_attributes')
+        @include('crud.inc.field_attributes')
 
 		@if(!isset($field['readonly']) || $field['readonly']) readonly @endif
 	>
 
 	<div class="btn-group" role="group" aria-label="..." style="margin-top: 3px;">
 	  <button type="button" data-inputid="{{ $field['name'] }}-filemanager" class="btn btn-default popup_selector">
-		<i class="fa fa-cloud-upload"></i> {{ trans('backpack::crud.browse_uploads') }}</button>
+		<i class="fa fa-cloud-upload"></i> {{ trans('crud.browse_uploads') }}</button>
 		<button type="button" data-inputid="{{ $field['name'] }}-filemanager" class="btn btn-default clear_elfinder_picker">
-		<i class="fa fa-eraser"></i> {{ trans('backpack::crud.clear') }}</button>
+		<i class="fa fa-eraser"></i> {{ trans('crud.clear') }}</button>
 	</div>
 
 	@if (isset($field['hint']))
@@ -36,7 +36,7 @@
 	{{-- FIELD CSS - will be loaded in the after_styles section --}}
 	@push('crud_fields_styles')
 		<!-- include browse server css -->
-		<link href="{{ asset('vendor/backpack/colorbox/example2/colorbox.css') }}" rel="stylesheet" type="text/css" />
+		<link href="/fadmin/colorbox/example2/colorbox.css" rel="stylesheet" type="text/css" />
 		<style>
 			#cboxContent, #cboxLoadedContent, .cboxIframe {
 				background: transparent;
@@ -46,7 +46,7 @@
 
 	@push('crud_fields_scripts')
 		<!-- include browse server js -->
-		<script src="{{ asset('vendor/backpack/colorbox/jquery.colorbox-min.js') }}"></script>
+		<script src="/fadmin/colorbox/jquery.colorbox-min.js"></script>
 	@endpush
 
 @endif

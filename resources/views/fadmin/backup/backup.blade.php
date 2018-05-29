@@ -11,7 +11,7 @@
         {{ trans('backup.backup') }}
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/dashboard') }}">Admin</a></li>
+        <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
         <li class="active">{{ trans('backup.backup') }}</li>
       </ol>
     </section>

@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', trans('base.dashboard'))
 @section('header')
     <section class="content-header">
       <h1>

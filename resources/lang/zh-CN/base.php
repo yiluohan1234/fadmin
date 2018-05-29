@@ -51,5 +51,6 @@ return [
         'button' => '重置密码',
         'notice' => '如果您不进行更改,您可以忽略此邮件.',
     ],
+    // File manager
     'file_manager' => "文件管理",
 ];

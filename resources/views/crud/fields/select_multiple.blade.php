@@ -1,11 +1,11 @@
 <!-- select multiple -->
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <select
     	class="form-control"
         name="{{ $field['name'] }}[]"
-        @include('crud::inc.field_attributes')
+        @include('crud.inc.field_attributes')
     	multiple>
 
 		@if (!isset($field['allows_null']) || $field['allows_null'])

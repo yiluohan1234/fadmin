@@ -55,34 +55,34 @@
         /* Disable initial sort */
         aaSorting: [],
         language: {
-              "emptyTable":     "{{ trans('backpack::crud.emptyTable') }}",
-              "info":           "{{ trans('backpack::crud.info') }}",
-              "infoEmpty":      "{{ trans('backpack::crud.infoEmpty') }}",
-              "infoFiltered":   "{{ trans('backpack::crud.infoFiltered') }}",
-              "infoPostFix":    "{{ trans('backpack::crud.infoPostFix') }}",
-              "thousands":      "{{ trans('backpack::crud.thousands') }}",
-              "lengthMenu":     "{{ trans('backpack::crud.lengthMenu') }}",
-              "loadingRecords": "{{ trans('backpack::crud.loadingRecords') }}",
-              "processing":     "<img src='{{ asset('vendor/backpack/crud/img/ajax-loader.gif') }}' alt='{{ trans('backpack::crud.processing') }}'>",
-              "search":         "{{ trans('backpack::crud.search') }}",
-              "zeroRecords":    "{{ trans('backpack::crud.zeroRecords') }}",
+              "emptyTable":     "{{ trans('crud.emptyTable') }}",
+              "info":           "{{ trans('crud.info') }}",
+              "infoEmpty":      "{{ trans('crud.infoEmpty') }}",
+              "infoFiltered":   "{{ trans('crud.infoFiltered') }}",
+              "infoPostFix":    "{{ trans('crud.infoPostFix') }}",
+              "thousands":      "{{ trans('crud.thousands') }}",
+              "lengthMenu":     "{{ trans('crud.lengthMenu') }}",
+              "loadingRecords": "{{ trans('crud.loadingRecords') }}",
+              "processing":     "<img src='/fadmin/crud/img/ajax-loader.gif' alt='{{ trans('crud.processing') }}'>",
+              "search":         "{{ trans('crud.search') }}",
+              "zeroRecords":    "{{ trans('crud.zeroRecords') }}",
               "paginate": {
-                  "first":      "{{ trans('backpack::crud.paginate.first') }}",
-                  "last":       "{{ trans('backpack::crud.paginate.last') }}",
-                  "next":       "<span class='hidden-xs hidden-sm'>{{ trans('backpack::crud.paginate.next') }}</span><span class='hidden-md hidden-lg'>></span>",
-                  "previous":   "<span class='hidden-xs hidden-sm'>{{ trans('backpack::crud.paginate.previous') }}</span><span class='hidden-md hidden-lg'><</span>"
+                  "first":      "{{ trans('crud.paginate.first') }}",
+                  "last":       "{{ trans('crud.paginate.last') }}",
+                  "next":       "<span class='hidden-xs hidden-sm'>{{ trans('crud.paginate.next') }}</span><span class='hidden-md hidden-lg'>></span>",
+                  "previous":   "<span class='hidden-xs hidden-sm'>{{ trans('crud.paginate.previous') }}</span><span class='hidden-md hidden-lg'><</span>"
               },
               "aria": {
-                  "sortAscending":  "{{ trans('backpack::crud.aria.sortAscending') }}",
-                  "sortDescending": "{{ trans('backpack::crud.aria.sortDescending') }}"
+                  "sortAscending":  "{{ trans('crud.aria.sortAscending') }}",
+                  "sortDescending": "{{ trans('crud.aria.sortDescending') }}"
               },
               "buttons": {
-                  "copy":   "{{ trans('backpack::crud.export.copy') }}",
-                  "excel":  "{{ trans('backpack::crud.export.excel') }}",
-                  "csv":    "{{ trans('backpack::crud.export.csv') }}",
-                  "pdf":    "{{ trans('backpack::crud.export.pdf') }}",
-                  "print":  "{{ trans('backpack::crud.export.print') }}",
-                  "colvis": "{{ trans('backpack::crud.export.column_visibility') }}"
+                  "copy":   "{{ trans('crud.export.copy') }}",
+                  "excel":  "{{ trans('crud.export.excel') }}",
+                  "csv":    "{{ trans('crud.export.csv') }}",
+                  "pdf":    "{{ trans('crud.export.pdf') }}",
+                  "print":  "{{ trans('crud.export.print') }}",
+                  "colvis": "{{ trans('crud.export.column_visibility') }}"
               },
           },
           processing: true,
@@ -99,7 +99,7 @@
   }
   </script>
 
-  @include('crud::inc.export_buttons')
+  @include('crud.inc.export_buttons')
 
   <script type="text/javascript">
     jQuery(document).ready(function($) {
@@ -111,8 +111,8 @@
       $('#crudTable').on('error.dt', function(e, settings, techNote, message) {
           new PNotify({
               type: "error",
-              title: "{{ trans('backpack::crud.ajax_error_title') }}",
-              text: "{{ trans('backpack::crud.ajax_error_text') }}"
+              title: "{{ trans('crud.ajax_error_title') }}",
+              text: "{{ trans('crud.ajax_error_text') }}"
           });
       });
 
@@ -147,4 +147,4 @@
     });
   </script>
 
-  @include('crud::inc.details_row_logic')
+  @include('crud.inc.details_row_logic')

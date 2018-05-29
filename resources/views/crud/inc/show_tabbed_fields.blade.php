@@ -19,7 +19,7 @@
     </style>
 @endpush
 
-@include('crud::inc.show_fields', ['fields' => $crud->getFieldsWithoutATab()])
+@include('crud.inc.show_fields', ['fields' => $crud->getFieldsWithoutATab()])
 
 <div class="tab-container {{ $horizontalTabs ? 'col-xs-12' : 'col-xs-3 m-t-10' }}">
 
@@ -40,7 +40,7 @@
     @foreach ($crud->getTabs() as $k => $tab)
     <div role="tabpanel" class="tab-pane{{$k == 0 ? ' active' : ''}}" id="tab_{{ str_slug($tab, "") }}">
 
-        @include('crud::inc.show_fields', ['fields' => $crud->getTabFields($tab)])
+        @include('crud.inc.show_fields', ['fields' => $crud->getTabFields($tab)])
 
     </div>
     @endforeach

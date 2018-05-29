@@ -1,3 +1,4 @@
+<script src="/fadmin/pnotify/pnotify.custom.min.js"></script>
 {{-- Bootstrap Notifications using Prologue Alerts --}}
 <script type="text/javascript">
   jQuery(document).ready(function($) {

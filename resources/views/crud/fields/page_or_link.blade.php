@@ -2,22 +2,22 @@
 <!-- Used in Backpack\MenuCRUD -->
 
 <?php
-    $field['options'] = ['page_link' => trans('backpack::crud.page_link'), 'internal_link' => trans('backpack::crud.internal_link'), 'external_link' => trans('backpack::crud.external_link')];
+    $field['options'] = ['page_link' => trans('crud.page_link'), 'internal_link' => trans('crud.internal_link'), 'external_link' => trans('crud.external_link')];
     $field['allows_null'] = false;
     $page_model = $field['page_model'];
     $active_pages = $page_model::all();
 ?>
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
     <label>{!! $field['label'] !!}</label>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     <div class="clearfix"></div>
 
     <div class="col-sm-3">
         <select
             id="page_or_link_select"
             name="{{ $field['name'] or 'type' }}"
-            @include('crud::inc.field_attributes')
+            @include('crud.inc.field_attributes')
             >
 
             @if (isset($field['allows_null']) && $field['allows_null']==true)
@@ -44,7 +44,7 @@
                 type="url"
                 class="form-control"
                 name="link"
-                placeholder="{{ trans('backpack::crud.page_link_placeholder') }}"
+                placeholder="{{ trans('crud.page_link_placeholder') }}"
 
                 @if (!isset($entry) || $entry->type!='external_link')
                     disabled="disabled"
@@ -63,7 +63,7 @@
                 type="text"
                 class="form-control"
                 name="link"
-                placeholder="{{ trans('backpack::crud.internal_link_placeholder', ['url', url(config('backpack.base.route_prefix').'/page')]) }}"
+                placeholder="{{ trans('crud.internal_link_placeholder', ['url', url(config('fadmin.base.route_prefix').'/page')]) }}"
 
                 @if (!isset($entry) || $entry->type!='internal_link')
                     disabled="disabled"

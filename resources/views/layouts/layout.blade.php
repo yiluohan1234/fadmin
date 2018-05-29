@@ -24,17 +24,24 @@
 
     {{-- <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    <link rel="stylesheet" href="/fadmin/admin-lte/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/fadmin/admin-lte/dist/css/skins/_all-skins.css">
     <link rel="stylesheet" href="/fadmin/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/fadmin/admin-lte/plugins/pace/pace.min.css">
-    <link rel="stylesheet" href="/fadmin/pnotify/pnotify.custom.min.css">
-    <link rel="stylesheet" href="/fadmin/css/base.css?v=2">
-    <link rel="stylesheet" href="/fadmin/css/bold.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
     <link rel="stylesheet" href="/fadmin/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/fadmin/ionicons/dist/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/fadmin/admin-lte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/fadmin/admin-lte/dist/css/skins/_all-skins.css">
+
+    <link rel="stylesheet" href="/fadmin/admin-lte/plugins/pace/pace.min.css">
+    <link rel="stylesheet" href="/fadmin/pnotify/pnotify.custom.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="/fadmin/css/base.css?v=2">
+    <link rel="stylesheet" href="/fadmin/css/bold.css">
+
+
+
+
 
     @yield('after_styles')
     @stack('after_styles')
@@ -120,9 +127,10 @@
     <script src="/fadmin/jquery/dist/jquery.min.js"></script>
     <script src="/fadmin/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/fadmin/admin-lte/plugins/pace/pace.min.js"></script>
-    <script src="/fadmin/admin-lte/dist/js/adminlte.min.js"></script>
+
     <script src="/fadmin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="/fadmin/pnotify/pnotify.custom.min.js"></script>
+    <script src="/fadmin/admin-lte/dist/js/adminlte.min.js"></script>
+
     <!-- page script -->
     <script type="text/javascript">
         /* Store sidebar state */
