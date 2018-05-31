@@ -7,7 +7,7 @@
         <small>{{ ucfirst(trans('crud.preview')).' '.$crud->entity_name }}.</small>
       </h1>
 	  <ol class="breadcrumb">
-	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
+	    <li><a href="{{ url(config('fadmin.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
 	    <li><a href="{{ url($crud->route) }}" class="text-capitalize">{{ $crud->entity_name_plural }}</a></li>
 	    <li class="active">{{ trans('crud.preview') }}</li>
 	  </ol>
@@ -37,7 +37,7 @@
 		                </td>
                         <td>
 							@if (!isset($column['type']))
-		                      @include('crud::columns.text')
+		                      @include('crud.columns.text')
 		                    @else
 		                      @if(view()->exists('crud.columns.'.$column['type']))
 		                        @include('crud.columns.'.$column['type'])

@@ -40,7 +40,7 @@ class BackupController extends Controller
         }
         // reverse the backups, so the newest one would be on top
         $this->data['backups'] = array_reverse($this->data['backups']);
-        $this->data['title'] = 'Backups';
+        $this->data['title'] = trans('backup.backups');
         return view('fadmin.backup.backup', $this->data);
     }
     public function create()

@@ -59,7 +59,9 @@
 
         @yield('content')
     </div>
-
+    {{-- @if (env('APP_DEBUG'))
+        @include('sudosu::user-selector')
+    @endif --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

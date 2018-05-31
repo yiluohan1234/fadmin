@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>
-      @yield('title', 'home') | {{config('fadmin.base.project_name')}}
+     {{ isset($title) ? $title.' | '.config('fadmin.base.project_name') : config('fadmin.base.project_name') }}
     </title>
 
     @yield('before_styles')
@@ -178,7 +178,9 @@
     @yield('after_scripts')
     @stack('after_scripts')
 
-
+    @if (env('APP_DEBUG'))
+        @include('sudosu::user-selector')
+    @endif
     <!-- JavaScripts -->
     {{-- <script src="{{ mix('js/app.js') }}"></script> --}}
 </body>

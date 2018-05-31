@@ -14,20 +14,20 @@ return [
     */
 
     // Forms
-    'save_action_save_and_new' => 'Save and new item',
-    'save_action_save_and_edit' => 'Save and edit this item',
-    'save_action_save_and_back' => 'Save and back',
+    'save_action_save_and_new' => '保存并添加新项',
+    'save_action_save_and_edit' => '保存并编辑此项',
+    'save_action_save_and_back' => '保存返回',
     'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
 
     // Create form
-    'add'                 => 'Add',
-    'back_to_all'         => 'Back to all ',
-    'cancel'              => 'Cancel',
-    'add_a_new'           => 'Add a new ',
+    'add'                 => '添加',
+    'back_to_all'         => '返回列表 ',
+    'cancel'              => '取消',
+    'add_a_new'           => '添加一个新 ',
 
     // Edit form
-    'edit'                 => 'Edit',
-    'save'                 => 'Save',
+    'edit'                 => '编辑',
+    'save'                 => '保存',
 
     // Revisions
     'revisions'            => 'Revisions',
@@ -46,66 +46,66 @@ return [
     'language'          => 'Language',
 
     // CRUD table view
-    'all'                       => 'All ',
-    'in_the_database'           => 'in the database',
-    'list'                      => 'List',
-    'actions'                   => 'Actions',
-    'preview'                   => 'Preview',
-    'delete'                    => 'Delete',
+    'all'                       => '所有',
+    'in_the_database'           => '在数据库中',
+    'list'                      => '列表',
+    'actions'                   => '操作',
+    'preview'                   => '查看',
+    'delete'                    => '删除',
     'admin'                     => 'Admin',
-    'details_row'               => 'This is the details row. Modify as you please.',
-    'details_row_loading_error' => 'There was an error loading the details. Please retry.',
+    'details_row'               => '这是数据的详细信息,可以按您要求更改.',
+    'details_row_loading_error' => '在加载详细信息时出错. 请重试.',
 
         // Confirmation messages and bubbles
-        'delete_confirm'                              => 'Are you sure you want to delete this item?',
-        'delete_confirmation_title'                   => 'Item Deleted',
-        'delete_confirmation_message'                 => 'The item has been deleted successfully.',
-        'delete_confirmation_not_title'               => 'NOT deleted',
-        'delete_confirmation_not_message'             => "There's been an error. Your item might not have been deleted.",
-        'delete_confirmation_not_deleted_title'       => 'Not deleted',
-        'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
+        'delete_confirm'                              => '你确定要删除此项吗?',
+        'delete_confirmation_title'                   => '此项被删除',
+        'delete_confirmation_message'                 => '此项已经被成功删除.',
+        'delete_confirmation_not_title'               => '没有删除',
+        'delete_confirmation_not_message'             => "存在错误. 此项也许没有被删除.",
+        'delete_confirmation_not_deleted_title'       => '没有删除',
+        'delete_confirmation_not_deleted_message'     => '什么也没有发生. 此项是安全的.',
 
-        'ajax_error_title' => 'Error',
-        'ajax_error_text'  => 'Error loading page. Please refresh the page.',
+        'ajax_error_title' => '错误',
+        'ajax_error_text'  => '加载页面时出错. 请刷新页面.',
 
         // DataTables translation
-        'emptyTable'     => 'No data available in table',
-        'info'           => 'Showing _START_ to _END_ of _TOTAL_ entries',
-        'infoEmpty'      => 'Showing 0 to 0 of 0 entries',
-        'infoFiltered'   => '(filtered from _MAX_ total entries)',
+        'emptyTable'     => '数据表中没有数据',
+        'info'           => '显示 _START_ 到 _END_ 页共 _TOTAL_ 条',
+        'infoEmpty'      => '显示 0 到 0 页共 0 条',
+        'infoFiltered'   => '(过滤 从 _MAX_ 共 条数)',
         'infoPostFix'    => '',
         'thousands'      => ',',
-        'lengthMenu'     => '_MENU_ records per page',
-        'loadingRecords' => 'Loading...',
-        'processing'     => 'Processing...',
+        'lengthMenu'     => '每页显示 _MENU_  ',
+        'loadingRecords' => '加载中...',
+        'processing'     => '执行中...',
         'search'         => 'Search: ',
-        'zeroRecords'    => 'No matching records found',
+        'zeroRecords'    => '没有匹配的数据',
         'paginate'       => [
-            'first'    => 'First',
-            'last'     => 'Last',
-            'next'     => 'Next',
-            'previous' => 'Previous',
+            'first'    => '第一页',
+            'last'     => '最后一页',
+            'next'     => '下一页',
+            'previous' => '前一页',
         ],
         'aria' => [
             'sortAscending'  => ': activate to sort column ascending',
             'sortDescending' => ': activate to sort column descending',
         ],
         'export' => [
-            'copy'              => 'Copy',
+            'copy'              => '复制',
             'excel'             => 'Excel',
             'csv'               => 'CSV',
             'pdf'               => 'PDF',
-            'print'             => 'Print',
-            'column_visibility' => 'Column visibility',
+            'print'             => '打印',
+            'column_visibility' => '显示列',
         ],
 
     // global crud - errors
-        'unauthorized_access' => 'Unauthorized access - you do not have the necessary permissions to see this page.',
-        'please_fix' => 'Please fix the following errors:',
+        'unauthorized_access' => '未授权 - 你没有权限来查看此页.',
+        'please_fix' => '请解决如下错误:',
 
     // global crud - success / error notification bubbles
-        'insert_success' => 'The item has been added successfully.',
-        'update_success' => 'The item has been modified successfully.',
+        'insert_success' => '此项已经被成功添加.',
+        'update_success' => '此项已经被成功修改.',
 
     // CRUD reorder view
         'reorder'                      => 'Reorder',

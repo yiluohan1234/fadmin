@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Orgs\Crud\CrudRoute;
+
 Route::group(
 [
     'middleware' => 'web',
@@ -55,8 +55,8 @@ function () {
 |
 */
 Route::group([
-            'middleware' => ['web', fadmin_middleware()],
-            'prefix'     => config('base.route_prefix', 'admin'),
+    'middleware' => ['web', fadmin_middleware(), 'can:log_manager'],
+    'prefix'     => config('base.route_prefix', 'admin'),
 ], function () {
     Route::get('log', 'Admin\LogController@index');
     Route::get('log/preview/{file_name}', 'Admin\LogController@preview');
@@ -66,7 +66,7 @@ Route::group([
 
 /*
 |--------------------------------------------------------------------------
-| Backpack\BackupManager Routes
+| BackupManager Routes
 |--------------------------------------------------------------------------
 |
 | This file is where you may define all of the routes that are
@@ -74,8 +74,8 @@ Route::group([
 |
 */
 Route::group([
+    'middleware' => ['web', 'admin', 'can:backup_manager'],
     'prefix'     => config('fadmin.base.route_prefix', 'admin'),
-    'middleware' => ['web', 'admin'],
 ], function () {
     Route::get('backup', 'Admin\BackupController@index');
     Route::put('backup/create', 'Admin\BackupController@create');
@@ -85,7 +85,7 @@ Route::group([
 
 /*
 |--------------------------------------------------------------------------
-| Backpack\PermissionManager Routes
+| PermissionManager Routes
 |--------------------------------------------------------------------------
 |
 | This file is where you may define all of the routes that are
@@ -93,10 +93,28 @@ Route::group([
 |
 */
 Route::group([
-        'prefix'     => config('fadmin.base.route_prefix', 'admin'),
-        'middleware' => ['web', fadmin_middleware()],
+    'middleware' => ['web', fadmin_middleware(), 'can:permission_manager'],
+    'prefix'     => config('fadmin.base.route_prefix', 'admin'),
 ], function () {
     CRUD::resource('permission', 'Admin\PermissionController');
     CRUD::resource('role', 'Admin\RoleController');
     CRUD::resource('user', 'Admin\UserController');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Blogs Routes
+|--------------------------------------------------------------------------
+|
+| This file is where you may define all of the routes that are
+| handled by the Backpack\NewsCRUD package.
+|
+*/
+Route::group([
+    'middleware' => ['web', 'admin'],
+    'prefix' => config('fadmin.base.route_prefix', 'admin'),
+], function () {
+    CRUD::resource('article', 'Admin\ArticleController');
+    CRUD::resource('category', 'Admin\CategoryController');
+    CRUD::resource('tag', 'Admin\TagController');
 });

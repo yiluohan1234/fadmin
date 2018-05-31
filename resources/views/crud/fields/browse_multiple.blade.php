@@ -7,10 +7,10 @@ if (!$multiple && is_array($value)) {
 }
 @endphp
 
-<div @include('crud::inc.field_wrapper_attributes') >
+<div @include('crud.inc.field_wrapper_attributes') >
 
     <div><label>{!! $field['label'] !!}</label></div>
-    @include('crud::inc.field_translatable_icon')
+    @include('crud.inc.field_translatable_icon')
     @if ($multiple)
         @foreach((array)$value as $v)
             @if ($v)
@@ -78,7 +78,7 @@ if (!$multiple && is_array($value)) {
     @push('crud_fields_scripts')
         <!-- include browse server js -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src="{{ asset('vendor/backpack/colorbox/jquery.colorbox-min.js') }}"></script>
+        <script src="{{ asset('/fadmin/colorbox/jquery.colorbox-min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('packages/barryvdh/elfinder/js/elfinder.min.js') }}"></script>
         {{-- <script type="text/javascript" src="{{ asset('packages/barryvdh/elfinder/js/extras/editors.default.min.js') }}"></script> --}}
         @if (($locale = \App::getLocale()) != 'en')
@@ -110,9 +110,9 @@ if (!$multiple && is_array($value)) {
                         width: 900,
                         modal: true,
                         @if ($multiple)
-                        title: '{{ trans('backpack::crud.select_files') }}',
+                        title: '{{ trans('crud.select_files') }}',
                         @else
-                        title: '{{ trans('backpack::crud.select_file') }}',
+                        title: '{{ trans('crud.select_file') }}',
                         @endif
                     },
                     resizable: false,

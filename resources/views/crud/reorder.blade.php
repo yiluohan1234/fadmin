@@ -7,7 +7,7 @@
         <small>{{ trans('crud.reorder').' '.$crud->entity_name_plural }}.</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
+        <li><a href="{{ url(config('fadmin.base.route_prefix'), 'dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
         <li><a href="{{ url($crud->route) }}" class="text-capitalize">{{ $crud->entity_name_plural }}</a></li>
         <li class="active">{{ trans('crud.reorder') }}</li>
     </ol>

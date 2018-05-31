@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-@section('title', trans('backup.backups'))
 @section('after_styles')
     <!-- Ladda Buttons (loading buttons) -->
     <link href="/fadmin/ladda/ladda-themeless.min.css" rel="stylesheet" type="text/css" />

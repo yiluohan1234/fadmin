@@ -5,7 +5,7 @@
     <textarea
     	id="ckeditor-{{ $field['name'] }}"
         name="{{ $field['name'] }}"
-        @include('crud.field_attributes', ['default_class' => 'form-control'])
+        @include('crud.inc.field_attributes', ['default_class' => 'form-control'])
     	>{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}</textarea>
 
     {{-- HINT --}}
@@ -37,7 +37,7 @@
 <script>
     jQuery(document).ready(function($) {
         $('#ckeditor-{{ $field['name'] }}').ckeditor({
-            "filebrowserBrowseUrl": "{{ url(config('backpack.base.route_prefix').'/elfinder/ckeditor') }}",
+            "filebrowserBrowseUrl": "{{ url(config('fadmin.base.route_prefix').'/elfinder/ckeditor') }}",
             "extraPlugins" : '{{ isset($field['extra_plugins']) ? implode(',', $field['extra_plugins']) : 'oembed,widget' }}'
         });
     });

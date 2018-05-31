@@ -19,7 +19,7 @@ return [
       'delete_confirmation_title'   => '完成',
       'download'                    => '下载',
       'delete_error_title'          => '错误',
-      'existing_logs'               => '日志已存在',
+      'existing_logs'               => '日志列表',
       'file_name'                   => '文件名',
       'file_size'                   => '文件大小',
       'delete_cancel_title'         => '一切OK',

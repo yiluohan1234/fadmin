@@ -28,7 +28,7 @@
     @push('crud_fields_scripts')
     <!-- include tinymce js-->
     <script src="/fadmin/tinymce/tinymce.min.js"></script>
-    {{-- <script src="{{ asset(config('backpack.base.route_prefix').'/js/vendor/tinymce/jquery.tinymce.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset(config('fadmin.base.route_prefix').'/js/vendor/tinymce/jquery.tinymce.min.js') }}"></script> --}}
 
     <script type="text/javascript">
     tinymce.init({

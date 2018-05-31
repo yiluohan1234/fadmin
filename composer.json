@@ -17,7 +17,9 @@
         "prologue/alerts": "^0.4.2",
         "spatie/laravel-backup": "^5.7",
         "spatie/laravel-permission": "^1.4",
-        "venturecraft/revisionable": "1.*"
+        "venturecraft/revisionable": "1.*",
+        "viacreative/sudo-su": "~1.1",
+        "cviebrock/eloquent-sluggable": "^4.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

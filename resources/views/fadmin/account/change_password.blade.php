@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', trans('base.change_password'))
+
 @section('after_styles')
 <style media="screen">
     .backpack-profile-form .required::after {

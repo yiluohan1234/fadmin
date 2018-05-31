@@ -38,12 +38,12 @@ return [
         // How many items should be shown by default by the Datatable?
         // This value can be overwritten on a specific CRUD by calling
         // $this->crud->setDefaultPageLength(50);
-        'default_page_length' => 25,
+        'default_page_length' => 5,
 
     // A 1D array of options which will be used for both the displayed option and the value, or
     // A 2D array in which the first array is used to define the value options and the second array the displayed options
     // If a 2D array is used, strings in the right hand array will be automatically run through trans()
-        'page_length_menu' => [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'backpack::crud.all']],
+        'page_length_menu' => [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, 'crud.all']],
 
     // PREVIEW
 
