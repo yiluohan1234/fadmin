@@ -19,7 +19,7 @@ class ArticleController extends CrudController
         */
         $this->crud->setModel("App\Models\Article");
         $this->crud->setRoute(config('fadmin.base.route_prefix', 'admin').'/article');
-        $this->crud->setEntityNameStrings('article', 'articles');
+        $this->crud->setEntityNameStrings(trans('blogs.setting_singular'), trans('blogs.setting_plural'));
         /*
         |--------------------------------------------------------------------------
         | COLUMNS AND FIELDS
@@ -28,24 +28,24 @@ class ArticleController extends CrudController
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
                                 'name' => 'date',
-                                'label' => 'Date',
+                                'label' => trans('blogs.Date'),
                                 'type' => 'date',
                             ]);
         $this->crud->addColumn([
                                 'name' => 'status',
-                                'label' => 'Status',
+                                'label' => trans('blogs.Status'),
                             ]);
         $this->crud->addColumn([
                                 'name' => 'title',
-                                'label' => 'Title',
+                                'label' => trans('blogs.Title'),
                             ]);
         $this->crud->addColumn([
                                 'name' => 'featured',
-                                'label' => 'Featured',
+                                'label' => trans('blogs.Featured'),
                                 'type' => 'check',
                             ]);
         $this->crud->addColumn([
-                                'label' => 'Category',
+                                'label' => trans('blogs.Category'),
                                 'type' => 'select',
                                 'name' => 'category_id',
                                 'entity' => 'category',
@@ -55,41 +55,41 @@ class ArticleController extends CrudController
         // ------ CRUD FIELDS
         $this->crud->addField([    // TEXT
                                 'name' => 'title',
-                                'label' => 'Title',
+                                'label' => trans('blogs.Title'),
                                 'type' => 'text',
                                 'placeholder' => 'Your title here',
                             ]);
         $this->crud->addField([
                                 'name' => 'slug',
-                                'label' => 'Slug (URL)',
+                                'label' => trans('blogs.Slug (URL)'),
                                 'type' => 'text',
-                                'hint' => 'Will be automatically generated from your title, if left empty.',
+                                'hint' => trans('blogs.Will be automatically generated from your title, if left empty.'),
                                 // 'disabled' => 'disabled'
                             ]);
         $this->crud->addField([    // TEXT
                                 'name' => 'date',
-                                'label' => 'Date',
+                                'label' => trans('blogs.Date'),
                                 'type' => 'date',
                                 'value' => date('Y-m-d'),
                             ], 'create');
         $this->crud->addField([    // TEXT
                                 'name' => 'date',
-                                'label' => 'Date',
+                                'label' => trans('blogs.Date'),
                                 'type' => 'date',
                             ], 'update');
         $this->crud->addField([    // WYSIWYG
                                 'name' => 'content',
-                                'label' => 'Content',
+                                'label' => trans('blogs.Content'),
                                 'type' => 'ckeditor',
-                                'placeholder' => 'Your textarea text here',
+                                'placeholder' => trans('blog.Your textarea text here'),
                             ]);
         $this->crud->addField([    // Image
                                 'name' => 'image',
-                                'label' => 'Image',
+                                'label' => trans('blogs.Image'),
                                 'type' => 'browse',
                             ]);
         $this->crud->addField([    // SELECT
-                                'label' => 'Category',
+                                'label' => trans('blogs.Category'),
                                 'type' => 'select2',
                                 'name' => 'category_id',
                                 'entity' => 'category',
@@ -97,7 +97,7 @@ class ArticleController extends CrudController
                                 'model' => "App\Models\Category",
                             ]);
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
-                                'label' => 'Tags',
+                                'label' => trans('blogs.Tags'),
                                 'type' => 'select2_multiple',
                                 'name' => 'tags', // the method that defines the relationship in your Model
                                 'entity' => 'tags', // the method that defines the relationship in your Model
@@ -107,12 +107,12 @@ class ArticleController extends CrudController
                             ]);
         $this->crud->addField([    // ENUM
                                 'name' => 'status',
-                                'label' => 'Status',
+                                'label' => trans('blogs.Status'),
                                 'type' => 'enum',
                             ]);
         $this->crud->addField([    // CHECKBOX
                                 'name' => 'featured',
-                                'label' => 'Featured item',
+                                'label' => trans('blogs.Featured item'),
                                 'type' => 'checkbox',
                             ]);
         $this->crud->enableAjaxTable();

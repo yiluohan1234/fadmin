@@ -19,7 +19,7 @@ class CategoryController extends CrudController
         */
         $this->crud->setModel("App\Models\Category");
         $this->crud->setRoute(config('fadmin.base.route_prefix', 'admin').'/category');
-        $this->crud->setEntityNameStrings('category', 'categories');
+        $this->crud->setEntityNameStrings(trans('blogs.category'), trans('blogs.categories'));
         /*
         |--------------------------------------------------------------------------
         | COLUMNS AND FIELDS
@@ -30,14 +30,14 @@ class CategoryController extends CrudController
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
                                 'name' => 'name',
-                                'label' => 'Name',
+                                'label' => trans('blogs.Name'),
                             ]);
         $this->crud->addColumn([
                                 'name' => 'slug',
-                                'label' => 'Slug',
+                                'label' => trans('blogs.Slug'),
                             ]);
         $this->crud->addColumn([
-                                'label' => 'Parent',
+                                'label' => trans('blogs.Parent'),
                                 'type' => 'select',
                                 'name' => 'parent_id',
                                 'entity' => 'parent',
@@ -47,17 +47,17 @@ class CategoryController extends CrudController
         // ------ CRUD FIELDS
         $this->crud->addField([
                                 'name' => 'name',
-                                'label' => 'Name',
+                                'label' => trans('blogs.Name'),
                             ]);
         $this->crud->addField([
                                 'name' => 'slug',
                                 'label' => 'Slug (URL)',
                                 'type' => 'text',
-                                'hint' => 'Will be automatically generated from your name, if left empty.',
+                                'hint' => trans('blogs.Will be automatically generated from your name, if left empty.'),
                                 // 'disabled' => 'disabled'
                             ]);
         $this->crud->addField([
-                                'label' => 'Parent',
+                                'label' => trans('blogs.Parent'),
                                 'type' => 'select',
                                 'name' => 'parent_id',
                                 'entity' => 'parent',

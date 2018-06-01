@@ -68,7 +68,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="{{ route('fadmin.dashboard') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini">{!! config('fadmin.base.logo_mini') !!}</span>
           <!-- logo for regular state and mobile devices -->
@@ -130,6 +130,7 @@
 
     <script src="/fadmin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/fadmin/admin-lte/dist/js/adminlte.min.js"></script>
+
 
     <!-- page script -->
     <script type="text/javascript">

@@ -53,4 +53,7 @@ return [
     ],
     // File manager
     'file_manager' => "文件管理",
+
+    //setting
+    'Settings'    => '设置',
 ];

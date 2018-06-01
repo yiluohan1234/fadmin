@@ -54,4 +54,7 @@ return [
     // file manager
     'file_manager' => "File Manager",
 
+    //setting
+    'Settings'    => 'Settings',
+
 ];

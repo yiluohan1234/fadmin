@@ -19,7 +19,7 @@ class TagController extends CrudController
         */
         $this->crud->setModel("App\Models\Tag");
         $this->crud->setRoute(config('fadmin.base.route_prefix', 'admin').'/tag');
-        $this->crud->setEntityNameStrings('tag', 'tags');
+        $this->crud->setEntityNameStrings(trans('blogs.tag'), trans('blogs.tags'));
         /*
         |--------------------------------------------------------------------------
         | COLUMNS AND FIELDS
@@ -28,22 +28,22 @@ class TagController extends CrudController
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
                                 'name' => 'name',
-                                'label' => 'Name',
+                                'label' => trans('blogs.Name'),
                             ]);
         $this->crud->addColumn([
                                 'name' => 'slug',
-                                'label' => 'Slug',
+                                'label' => trans('blogs.Slug'),
                             ]);
         // ------ CRUD FIELDS
         $this->crud->addField([
                                 'name' => 'name',
-                                'label' => 'Name',
+                                'label' => trans('blogs.Name'),
                             ]);
         $this->crud->addField([
                                 'name' => 'slug',
-                                'label' => 'Slug (URL)',
+                                'label' => trans('blogs.Slug (URL)'),
                                 'type' => 'text',
-                                'hint' => 'Will be automatically generated from your name, if left empty.',
+                                'hint' => trans('blogs.Will be automatically generated from your name, if left empty.'),
                                 // 'disabled' => 'disabled'
                             ]);
     }

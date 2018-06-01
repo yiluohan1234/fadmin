@@ -181,6 +181,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\CrudServiceProvider::class,
 
+        'Jenssegers\Date\DateServiceProvider',
+
     ],
 
     /*
@@ -232,6 +234,7 @@ return [
         'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'CRUD' => App\Providers\CrudServiceProvider::class,
+        'Date' => Jenssegers\Date\Date::class,
     ],
 
 ];

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/', 'Admin\PagesController@redirect');
+
 Route::group(
 [
     'middleware' => 'web',
@@ -111,10 +113,36 @@ Route::group([
 |
 */
 Route::group([
-    'middleware' => ['web', 'admin'],
+    'middleware' => ['web', 'admin', 'can:wiki_manager'],
     'prefix' => config('fadmin.base.route_prefix', 'admin'),
 ], function () {
     CRUD::resource('article', 'Admin\ArticleController');
     CRUD::resource('category', 'Admin\CategoryController');
     CRUD::resource('tag', 'Admin\TagController');
 });
+Route::group([
+    'middleware' => ['web', 'admin'],
+    'prefix' => config('fadmin.base.route_prefix', 'admin'),
+], function () {
+    Route::get('monitor/table', 'Admin\MonitorController@table')->name('table');
+    Route::get('monitor/table/data', 'Admin\MonitorController@tabledata');
+    Route::get('monitor/picture', 'Admin\MonitorController@picture')->name('picture');
+    Route::post('monitor/picture/odata', 'Admin\MonitorController@odata');
+    Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
+});
+/*
+|--------------------------------------------------------------------------
+| Backpack\Settings Routes
+|--------------------------------------------------------------------------
+|
+| This file is where you may define all of the routes that are
+| handled by the Backpack\Settings package.
+|
+*/
+Route::group([
+    'prefix'     => config('fadmin.base.route_prefix', 'admin'),
+    'middleware' => ['web', fadmin_middleware(), 'can:setting_manager'],
+], function () {
+    CRUD::resource('setting', 'Admin\SettingController');
+});
+

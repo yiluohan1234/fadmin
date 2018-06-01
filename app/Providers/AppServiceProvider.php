@@ -31,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         if (app()->isLocal()) {
             $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
         }
+        // $this->app->register(\Cviebrock\EloquentSluggable\ServiceProvider::class);
     }
 }

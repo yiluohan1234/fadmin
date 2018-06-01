@@ -29,6 +29,8 @@ class SeedRolesAndPermissionsData extends Migration
             'backup_manager',
             'log_manager',
             'permission_manager',
+            'setting_manager',
+            'wiki_manager'
 
         ];
         // 先创建权限:管理用户,编辑设置
