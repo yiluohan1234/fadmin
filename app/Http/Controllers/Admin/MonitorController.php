@@ -5,9 +5,25 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Monitor;
-
+use App\Models\Service;
 class MonitorController extends Controller
 {
+    public function map()
+    {
+        $this->data['title'] = 'map';
+        return view('fadmin.monitor.map', $this->data);
+    }
+    public function mdata()
+    {
+        $data = [];
+        $provinces = ['011', '013', '018', '019', '010', '091', '090', '097', '031', '034', '036', '030', '038', '075', '017', '076', '071', '074', '051', '059', '050', '083', '081', '085', '086', '079', '084', '087', '070', '088', '089'];
+        //0
+        foreach($provinces as $p){
+            $tmp = Service::where("prov_id", $p)->orderBy('service_type')->get();
+            array_push($data, [$tmp[0]->user_num, $tmp[1]->user_num, $tmp[2]->user_num, $tmp[3]->user_num,$tmp[4]->user_num, $tmp[0]->user_num+$tmp[1]->user_num+$tmp[2]->user_num+$tmp[3]->user_num+$tmp[4]->user_num]);
+        }
+        return $data;
+    }
     public function table()
     {
         $this->data['title'] = trans('monitor.monitor_data');

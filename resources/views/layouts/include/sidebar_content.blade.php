@@ -9,6 +9,7 @@
     <ul class="treeview-menu">
       <li><a href="{{ route('table') }}"><i class="fa fa-file-text-o"></i> <span>{{trans('monitor.data_update')}}</span></a></li>
       <li><a href="{{ route('picture') }}"><i class="fa fa-bar-chart"></i> <span>{{trans('monitor.picture')}}</span></a></li>
+      <li><a href="{{ route('map') }}"><i class="fa fa-pie-chart"></i> <span>map</span></a></li>
     </ul>
 </li>
 
@@ -58,3 +59,8 @@
 @can('setting_manager')
 <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/setting') }}'><i class='fa fa-cog'></i> <span>{{trans('base.Settings')}}</span></a></li>
 @endcan
+
+<li class="header">友情链接</li>
+<li><a href="http://layer.layui.com/" target="_blank"><i class="fa fa-share-alt"></i> <span>layer</span></a></li>
+<li><a href="http://fontawesome.dashgame.com/" target="_blank"><i class="fa fa-share-alt"></i> <span>icons</span></a></li>
+

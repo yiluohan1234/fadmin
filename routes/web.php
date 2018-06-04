@@ -120,6 +120,11 @@ Route::group([
     CRUD::resource('category', 'Admin\CategoryController');
     CRUD::resource('tag', 'Admin\TagController');
 });
+/*
+|--------------------------------------------------------------------------
+| data monitor Routes
+|--------------------------------------------------------------------------
+*/
 Route::group([
     'middleware' => ['web', 'admin'],
     'prefix' => config('fadmin.base.route_prefix', 'admin'),
@@ -129,6 +134,8 @@ Route::group([
     Route::get('monitor/picture', 'Admin\MonitorController@picture')->name('picture');
     Route::post('monitor/picture/odata', 'Admin\MonitorController@odata');
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
+    Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
+    Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
 });
 /*
 |--------------------------------------------------------------------------
