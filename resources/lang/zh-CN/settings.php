@@ -15,4 +15,6 @@ return [
     'setting_singular' => '设置',
     'setting_plural'   => '设置',
 
+    'link'             => '链接',
+    'links'            => '链接',
 ];

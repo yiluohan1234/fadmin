@@ -151,5 +151,7 @@ Route::group([
     'middleware' => ['web', fadmin_middleware(), 'can:setting_manager'],
 ], function () {
     CRUD::resource('setting', 'Admin\SettingController');
+    CRUD::resource('link', 'Admin\LinksController');
+    CRUD::resource('timeline', 'Admin\TimelineController');
 });
 

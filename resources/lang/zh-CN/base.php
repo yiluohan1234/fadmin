@@ -56,4 +56,7 @@ return [
 
     //setting
     'Settings'    => '设置',
+
+    //links
+    'Links'       => '友情链接',
 ];

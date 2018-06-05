@@ -58,9 +58,11 @@
 
 @can('setting_manager')
 <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/setting') }}'><i class='fa fa-cog'></i> <span>{{trans('base.Settings')}}</span></a></li>
+<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/link') }}'><i class='fa fa-external-link'></i> <span>{{trans('base.Links')}}</span></a></li>
 @endcan
 
 <li class="header">友情链接</li>
-<li><a href="http://layer.layui.com/" target="_blank"><i class="fa fa-share-alt"></i> <span>layer</span></a></li>
-<li><a href="http://fontawesome.dashgame.com/" target="_blank"><i class="fa fa-share-alt"></i> <span>icons</span></a></li>
+<li><a href="http://layer.layui.com/" target="_blank"><i class="fa fa-align-justify"></i> <span>layer</span></a></li>
+<li><a href="http://fontawesome.dashgame.com/" target="_blank"><i class="fa fa-dribbble"></i> <span>icons</span></a></li>
+<li><a href="https://laravel-china.org/docs/laravel/5.5" target="_blank"><i class="fa fa-file"></i> <span>laravel5.5</span></a></li>
 

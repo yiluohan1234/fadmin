@@ -15,4 +15,8 @@ return [
     'setting_singular' => 'setting',
     'setting_plural'   => 'settings',
 
+
+    'link'             => 'link',
+    'links'            => 'links',
+
 ];

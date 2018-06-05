@@ -57,4 +57,6 @@ return [
     //setting
     'Settings'    => 'Settings',
 
+    //links
+    'Links'       => 'Links',
 ];
