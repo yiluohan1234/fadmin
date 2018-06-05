@@ -4,12 +4,15 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 require('./bootstrap');
-require('jquery');
-require('admin-lte');
+require('jquery/dist/jquery.min.js');
+require('bootstrap/dist/js/bootstrap.min.js');
+
+require('admin-lte/plugins/pace/pace.min.js');
 require('jquery-slimscroll/jquery.slimscroll.min.js');
-require('echarts');
+require('admin-lte/dist/js/adminlte.min.js');
+
+
 window.Vue = require('vue');
 
 /**
