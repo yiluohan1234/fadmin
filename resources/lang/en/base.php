@@ -59,4 +59,5 @@ return [
 
     //links
     'Links'       => 'Links',
+
 ];

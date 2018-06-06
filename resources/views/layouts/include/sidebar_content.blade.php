@@ -59,6 +59,7 @@
 @can('setting_manager')
 <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/setting') }}'><i class='fa fa-cog'></i> <span>{{trans('base.Settings')}}</span></a></li>
 <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/link') }}'><i class='fa fa-external-link'></i> <span>{{trans('base.Links')}}</span></a></li>
+<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/timeline') }}'><i class='fa fa-clock-o'></i> <span>{{trans('timeline.Timelines')}}</span></a></li>
 @endcan
 
 <li class="header">友情链接</li>

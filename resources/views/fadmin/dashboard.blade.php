@@ -24,4 +24,49 @@
             </div>
         </div>
     </div>
+    @if(count($timeline) != 0)
+    <div class="box">
+        <div class="box-body">
+          <div class="tab-pane" id="timeline">
+            <!-- The timeline -->
+            <ul class="timeline timeline-inverse">
+              <!-- timeline time label -->
+              @foreach($timeline as $t)
+                @foreach($t as $key => $value)
+                  <li class="time-label">
+                        <span class="bg-blue">
+                          {{$key}}
+                        </span>
+                  </li>
+
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  @foreach($value as $v)
+                  <li>
+                    <i class="fa {{$v->action}} {{$v->color}}"></i>
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> {{$v->date}}</span>
+
+                      <h3 class="timeline-header">{{$v->title}}</h3>
+
+                      <div class="timeline-body">
+                        {!!$v->content!!}
+                      </div>
+                      <!-- <div class="timeline-footer">
+                        <a class="btn btn-primary btn-xs">Read more</a>
+                        <a class="btn btn-danger btn-xs">Delete</a>
+                      </div> -->
+                    </div>
+                  </li>
+                  @endforeach
+                @endforeach
+              @endforeach
+              <li>
+                <i class="fa fa-clock-o bg-gray"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    @endif
 @endsection

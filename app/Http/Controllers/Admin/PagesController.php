@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Timeline;
+use DB;
 
 class PagesController extends Controller
 {
@@ -23,7 +25,13 @@ class PagesController extends Controller
      */
     public function dashboard()
     {
+        $timeline = [];
+        $time = DB::select("SELECT distinct(date_format(created_at, '%Y-%m')) as time FROM timelines order by time desc");
+        foreach($time as $t){
+            array_push($timeline,[$t->time => Timeline::where('date', 'like', "$t->time%")->orderBy('created_at', 'desc')->get()]);
+        }
         $this->data['title'] = trans('base.dashboard'); // set the page title
+        $this->data['timeline'] = $timeline;
         return view('fadmin.dashboard', $this->data);
     }
     /**
