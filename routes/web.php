@@ -136,6 +136,7 @@ Route::group([
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
     Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
     Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
+    Route::get('monitor/map/mddata/{m?}', 'Admin\MonitorController@mddata');
 });
 /*
 |--------------------------------------------------------------------------

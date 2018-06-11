@@ -24,6 +24,7 @@
             </div>
         </div>
     </div>
+    @role('admin')
     @if(count($timeline) != 0)
     <div class="box">
         <div class="box-body">
@@ -69,4 +70,5 @@
         </div>
     </div>
     @endif
+    @endrole
 @endsection

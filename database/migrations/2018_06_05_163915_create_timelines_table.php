@@ -18,7 +18,7 @@ class CreateTimelinesTable extends Migration
             $table->enum('action', ['fa-plus-square', 'fa-bug', 'fa-cloud-upload ', 'fa-trash'])->default('fa-plus-square');
             $table->string('title');
             $table->text('content');
-            $table->enum('color', ['bg-green', 'bg-red', 'bg-yellow'])->default('bg-green');
+            $table->enum('color', ['bg-green', 'bg-red', 'bg-yellow', 'bg-blue', 'bg-purple'])->default('bg-green');
             $table->date('date');
             $table->timestamps();
         });
