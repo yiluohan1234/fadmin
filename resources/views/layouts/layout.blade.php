@@ -53,7 +53,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition {{ config('fadmin.base.skin') }} sidebar-mini">
+<body class="hold-transition {{ config('fadmin.base.skin') }} fixed sidebar-mini">
     <script type="text/javascript">
         /* Recover sidebar state */
         (function () {
@@ -129,6 +129,7 @@
     <script src="/fadmin/admin-lte/plugins/pace/pace.min.js"></script>
 
     <script src="/fadmin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="/fadmin/admin-lte/dist/js/adminlte.min.js"></script>
 
 

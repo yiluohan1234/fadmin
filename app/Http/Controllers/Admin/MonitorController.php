@@ -24,8 +24,10 @@ class MonitorController extends Controller
         }
         return $data;
     }
-    public function mddata($time)
+    public function mddata(Request $request)
     {
+        $input = $request->all();
+        $time = $input['time'];
         $data = [];
         $provinces = ['011', '013', '018', '019', '010', '091', '090', '097', '031', '034', '036', '030', '038', '075', '017', '076', '071', '074', '051', '059', '050', '083', '081', '085', '086', '079', '084', '087', '070', '088', '089'];
         $tmp = Service::where("month_id", $time)->where('service_type', '0')->orderBy('user_num', 'desc')->get();

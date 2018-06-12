@@ -28,137 +28,163 @@
 <script src="/fadmin/js/echarts-en.js"></script>
 @endif
 <script type="text/javascript">
-    var names = [],ttls_O = [],ttls_l = [];
+    function getdata(ec){
+        $.ajax({
+            type : "post",
+            async : false,
+            url : '/admin/monitor/picture/odata',
+            data : {},
+            dataType : "json",
+            success : function(result) {
+                if(result){
+                    $.each(result.O, function(i, item) {
+                        names.push(item.update_date);
+                        ttls_O.push(item.space_size);
+                    });
+                    $.each(result.label, function(i, item) {
+                        ttls_l.push(item.space_size);
+                    });
+                    ec.hideLoading();    //隐藏加载动画
+                    ec.setOption({        //加载数据图表
+                        xAxis: {
+                            data: names
+                        },
+                        series: [{
+                            // 根据名字对应到相应的系列
+                            name: '{{trans('monitor.O_data')}}',
+                            data: ttls_O
+                        },
+                        {
+                            name: '{{trans('monitor.label_data')}}',
+                            data: ttls_l
+                        }
+                        ]
+                    });
+                }
 
-    function getdata(){
-        $.post("{{ url('/admin/monitor/picture/odata') }}", {
-            "_token": "{{ csrf_token() }}"
-        }, function(data) {
-            $.each(data.O, function(i, item) {
-                names.push(item.update_date);
-                ttls_O.push(item.space_size);
-            });
-            $.each(data.label, function(i, item) {
-                ttls_l.push(item.space_size);
-            });
-        });
-        return names,ttls_O, ttls_l;
-    };
-    getdata();
-    function chart_line() {
-        var myLineChart = echarts.init(document.getElementById('lineMain'));
-
-        option = {
-            title : {
-                text: '{{trans('monitor.Last 7 days')}}'
             },
-            tooltip : {
-                trigger: 'axis'
-            },
-            legend: {
-                data:['{{trans('monitor.O_data')}}', '{{trans('monitor.label_data')}}']
-            },
-            toolbox: {
-                show : true,
-                feature : {
-                    mark : {show: true},
-                    dataView : {show: true, readOnly: false},
-                    magicType : {show: true, type: ['line', 'bar']},
-                    restore : {show: true},
-                    saveAsImage : {show: true}
-                }
-            },
-            calculable : true,
-            xAxis : [
-                {
-                    type : 'category',
-                    boundaryGap : false,
-                    data : names
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value',
-                    axisLabel : {
-                        formatter: '{value} M'
-                    }
-                }
-            ],
-            series : [
-                {
-                    name:'{{trans('monitor.O_data')}}',
-                    type:'line',
-                    data: ttls_O // y轴的数据，由上个方法中得到的ttls
-                },
-                {
-                    name:'{{trans('monitor.label_data')}}',
-                    type:'line',
-                    data: ttls_l  // y轴的数据，由上个方法中得到的ttls
-                }
-            ]
-        };
-        myLineChart.setOption(option);
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                ec.hideLoading();
+            }
+        })
     }
-    setTimeout('chart_line()', 1000);
+    var myLineChart = echarts.init(document.getElementById('lineMain'));
+    option = {
+        title : {
+            text: '{{trans('monitor.Last 7 days')}}'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['{{trans('monitor.O_data')}}', '{{trans('monitor.label_data')}}']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : []
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} M'
+                }
+            }
+        ],
+        series : [
+            {
+                name:'{{trans('monitor.O_data')}}',
+                type:'line',
+                data: []// y轴的数据，由上个方法中得到的ttls
+            },
+            {
+                name:'{{trans('monitor.label_data')}}',
+                type:'line',
+                data: []  // y轴的数据，由上个方法中得到的ttls
+            }
+        ]
+    };
+    myLineChart.setOption(option,true);
+    myLineChart.showLoading();
+    var names = [],ttls_O = [],ttls_l = [];
+    getdata(myLineChart);
 </script>
 <script type="text/javascript">
-
-    var datas = [];
-    function getdata(){
-        $.post("{{ url('/admin/monitor/picture/filesystem') }}", {
-            "_token": "{{ csrf_token() }}"
-        }, function(result) {
-            datas = result;
-        });
-        return datas;
-    };
-    getdata();
-    function chart_pie(){
-        var myBarChart = echarts.init(document.getElementById('pieMain'));
-        option = {
-            title : {
-                text: '{{trans('monitor.Disk usage')}}',
-            },
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                x: 'right',
-                data:['{{trans('monitor.Total')}}','{{trans('monitor.Usage')}}']
-            },
-            series: [
-                {
-                    name:'{{trans('monitor.Disk usage')}}',
-                    type:'pie',
-                    radius: ['50%', '70%'],
-                    avoidLabelOverlap: false,
-                    label: {
-                        normal: {
-                            show: false,
-                            position: 'center'
-                        },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        }
-                    },
-                    labelLine: {
-                        normal: {
-                            show: false
-                        }
-                    },
-                    data:datas
+    function getdata(ec){
+        $.ajax({
+            type : "post",
+            async : false,
+            url : '/admin/monitor/picture/filesystem',
+            data : {},
+            dataType : "json",
+            success : function(result) {
+                if(result){
+                    datas = result;
+                    ec.hideLoading();    //隐藏加载动画
+                    ec.setOption({        //加载数据图表
+                        series: [{
+                            data: datas
+                        }]
+                    });
                 }
-            ]
-        };
 
-        myBarChart.setOption(option);
+            },
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                ec.hideLoading();
+            }
+        })
+    }
+    var myBarChart = echarts.init(document.getElementById('pieMain'));
+    option = {
+        title : {
+            text: '{{trans('monitor.Disk usage')}}',
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'right',
+            data:['{{trans('monitor.Total')}}','{{trans('monitor.Usage')}}']
+        },
+        series: [
+            {
+                name:'{{trans('monitor.Disk usage')}}',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+                data:[]
+            }
+        ]
     };
-    setTimeout('chart_pie()', 1000);
+    myBarChart.setOption(option,true);
+    myBarChart.showLoading();
+    getdata(myBarChart);
 </script>
 @endsection

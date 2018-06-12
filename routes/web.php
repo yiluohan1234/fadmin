@@ -11,6 +11,15 @@
 |
 */
 
+
+/*
+|--------------------------------------------------------------------------
+| Home Routes
+|--------------------------------------------------------------------------
+|
+| Home redirect to login
+|
+*/
 Route::get('/', 'Admin\PagesController@redirect');
 
 Route::group(
@@ -52,9 +61,6 @@ function () {
 | LogManager Routes
 |--------------------------------------------------------------------------
 |
-| This file is where you may define all of the routes that are
-| handled by the Backpack\LogManager package.
-|
 */
 Route::group([
     'middleware' => ['web', fadmin_middleware(), 'can:log_manager'],
@@ -70,10 +76,6 @@ Route::group([
 |--------------------------------------------------------------------------
 | BackupManager Routes
 |--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are
-| handled by the Backpack\BackupManager package.
-|
 */
 Route::group([
     'middleware' => ['web', 'admin', 'can:backup_manager'],
@@ -89,10 +91,6 @@ Route::group([
 |--------------------------------------------------------------------------
 | PermissionManager Routes
 |--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are
-| handled by the Backpack\PermissionManager package.
-|
 */
 Route::group([
     'middleware' => ['web', fadmin_middleware(), 'can:permission_manager'],
@@ -107,10 +105,6 @@ Route::group([
 |--------------------------------------------------------------------------
 | Blogs Routes
 |--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are
-| handled by the Backpack\NewsCRUD package.
-|
 */
 Route::group([
     'middleware' => ['web', 'admin', 'can:wiki_manager'],
@@ -136,16 +130,12 @@ Route::group([
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
     Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
     Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
-    Route::get('monitor/map/mddata/{m?}', 'Admin\MonitorController@mddata');
+    Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');
 });
 /*
 |--------------------------------------------------------------------------
-| Backpack\Settings Routes
+| Settings Routes
 |--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are
-| handled by the Backpack\Settings package.
-|
 */
 Route::group([
     'prefix'     => config('fadmin.base.route_prefix', 'admin'),

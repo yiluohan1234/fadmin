@@ -1,4 +1,5 @@
 <?php
+
 if (!function_exists('get_db_config')){
     function get_db_config()
     {
@@ -25,16 +26,17 @@ if (!function_exists('get_db_config')){
 }
 
 if (!function_exists('ts')){
-    function ts($code,$lang='zh'){
-        $lang= empty($lang)?'zh':$lang;
-        $code= preg_replace('/[^0-9a-zA-z.-_ ]/', '', $code);
-        $trans=trans($code,[],'',$lang);
-        if(empty($trans)||$trans==$code){
-            $trans= ucwords(preg_replace('/([0-9a-zA-z-_ ]*[.])*/', '', $code));
+    function ts($code, $lang='zh'){
+        $lang = empty($lang)?'zh':$lang;
+        $code = preg_replace('/[^0-9a-zA-z.-_ ]/', '', $code);
+        $trans = trans($code,[],'',$lang);
+        if (empty($trans) || $trans == $code){
+            $trans = ucwords(preg_replace('/([0-9a-zA-z-_ ]*[.])*/', '', $code));
         }
         return $trans;
     }
  }
+
 if (!function_exists('fadmin_url')) {
     /**
      * Appends the configured fadmin prefix and returns

@@ -12,11 +12,6 @@
 
 @endsection
 @section('content')
-    {{-- <div class="box">
-        <div class="box-body">
-            <div id="main" style="height:800px;"></div>
-        </div>
-    </div> --}}
     <div class="box">
         <div class="box-body">
             <div class="page-header">
@@ -34,6 +29,11 @@
             <div id="lineMain" style="height:500px;"></div>
         </div>
     </div>
+    <div class="box">
+        <div class="box-body">
+            <div id="main" style="height:800px;"></div>
+        </div>
+    </div>
 
 
 @endsection
@@ -43,10 +43,10 @@
 <script type="text/javascript">
     function getdata(time){
         $.ajax({
-            type : "get",
+            type : "post",
             async : false,
-            url : '/admin/monitor/map/mddata/'+time,
-            data : {},
+            url : '/admin/monitor/map/mddata/',
+            data : {'time': time},
             dataType : "json",
             success : function(result) {
                 if(result){
