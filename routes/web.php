@@ -116,6 +116,19 @@ Route::group([
 });
 /*
 |--------------------------------------------------------------------------
+| Settings Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+    'prefix'     => config('fadmin.base.route_prefix', 'admin'),
+    'middleware' => ['web', fadmin_middleware(), 'can:setting_manager'],
+], function () {
+    CRUD::resource('setting', 'Admin\SettingController');
+    CRUD::resource('link', 'Admin\LinksController');
+    CRUD::resource('timeline', 'Admin\TimelineController');
+});
+/*
+|--------------------------------------------------------------------------
 | data monitor Routes
 |--------------------------------------------------------------------------
 */
@@ -128,21 +141,24 @@ Route::group([
     Route::get('monitor/picture', 'Admin\MonitorController@picture')->name('picture');
     Route::post('monitor/picture/odata', 'Admin\MonitorController@odata');
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
-    Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
-    Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
-    Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');
+    // Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
+    // Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
+    // Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');
 });
 /*
 |--------------------------------------------------------------------------
-| Settings Routes
+| fast analysis Routes
 |--------------------------------------------------------------------------
 */
 Route::group([
-    'prefix'     => config('fadmin.base.route_prefix', 'admin'),
-    'middleware' => ['web', fadmin_middleware(), 'can:setting_manager'],
+    'middleware' => ['web', 'admin'],
+    'prefix' => config('fadmin.base.route_prefix', 'admin'),
 ], function () {
-    CRUD::resource('setting', 'Admin\SettingController');
-    CRUD::resource('link', 'Admin\LinksController');
-    CRUD::resource('timeline', 'Admin\TimelineController');
+    Route::get('analysis/users', 'Admin\AnalysisController@users')->name('fadmin.analysis.users');
+    Route::post('analysis/users/udata', 'Admin\AnalysisController@udata');
+    Route::get('analysis/fees', 'Admin\AnalysisController@fees')->name('fadmin.analysis.fees');
+    Route::post('analysis/fees/fdata', 'Admin\AnalysisController@fdata');
+    Route::get('analysis/dou', 'Admin\AnalysisController@dou')->name('fadmin.analysis.dou');
+    Route::post('analysis/dou/ddata', 'Admin\AnalysisController@ddata');
 });
 

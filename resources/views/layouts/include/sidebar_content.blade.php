@@ -8,11 +8,19 @@
     <a href="#"><i class="fa fa-database"></i> <span>{{trans('monitor.data monitor')}}</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
       <li><a href="{{ route('table') }}"><i class="fa fa-file-text-o"></i> <span>{{trans('monitor.data_update')}}</span></a></li>
-      <li><a href="{{ route('picture') }}"><i class="fa fa-bar-chart"></i> <span>{{trans('monitor.picture')}}</span></a></li>
-      <li><a href="{{ route('map') }}"><i class="fa fa-pie-chart"></i> <span>map</span></a></li>
+      <li><a href="{{ route('picture') }}"><i class="fa fa-file-image-o"></i> <span>{{trans('monitor.picture')}}</span></a></li>
+      {{-- <li><a href="{{ route('map') }}"><i class="fa fa-pie-chart"></i> <span>map</span></a></li> --}}
     </ul>
 </li>
-
+{{-- fast analysis --}}
+<li class="treeview">
+    <a href="#"><i class="fa fa-bar-chart"></i> <span>经营分析</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a href="{{ route('fadmin.analysis.users') }}"><i class="fa fa-check-circle"></i> <span>出账人数</span></a></li>
+      <li><a href="{{ route('fadmin.analysis.fees') }}"><i class="fa fa-check-circle"></i> <span>出账收入</span></a></li>
+      <li><a href="{{ route('fadmin.analysis.dou') }}"><i class="fa fa-check-circle"></i> <span>DOU</span></a></li>
+    </ul>
+</li>
 {{-- wiki manamger --}}
 @can('wiki_manager')
 <li class="treeview">
