@@ -36,7 +36,6 @@
 </li>
 @endcan
 
-
 @can('file_manager')
 <li><a href="{{ fadmin_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>{{ trans('base.file_manager') }}</span></a></li>
 @endcan
@@ -68,9 +67,14 @@
 @endcan
 
 @can('setting_manager')
-<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/setting') }}'><i class='fa fa-cog'></i> <span>{{trans('base.Settings')}}</span></a></li>
-<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/link') }}'><i class='fa fa-external-link'></i> <span>{{trans('base.Links')}}</span></a></li>
-<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/timeline') }}'><i class='fa fa-clock-o'></i> <span>{{trans('timeline.Timelines')}}</span></a></li>
+<li class="treeview">
+    <a href="#"><i class="fa fa-cogs"></i> <span>{{trans('base.Settings')}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/setting') }}'><i class='fa fa-cog'></i> <span>{{trans('base.Settings')}}</span></a></li>
+      <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/link') }}'><i class='fa fa-external-link'></i> <span>{{trans('base.Links')}}</span></a></li>
+      <li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/timeline') }}'><i class='fa fa-clock-o'></i> <span>{{trans('timeline.Timelines')}}</span></a></li>
+    </ul>
+</li>
 @endcan
 
 <li class="header">友情链接</li>
