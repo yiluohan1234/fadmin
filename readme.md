@@ -10,7 +10,7 @@
 - 文件管理
 - wiki管理
 
-![](https://github.com/yiluohan1234/fadmin/tree/master/public/screenshot.png)
+![](https://github.com/yiluohan1234/fadmin/blob/master/public/screen_shot.png)
 ## 安装说明
 ### 1.项目地址
 ```
