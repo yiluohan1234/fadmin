@@ -162,3 +162,16 @@ Route::group([
     Route::post('analysis/dou/ddata', 'Admin\AnalysisController@ddata');
 });
 
+/*
+|--------------------------------------------------------------------------
+| wodas manager Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+    'middleware' => ['web', 'admin'],
+    'prefix' => config('fadmin.base.route_prefix', 'admin'),
+], function () {
+    CRUD::resource('wodas', 'Admin\WodasController');
+});
+
+

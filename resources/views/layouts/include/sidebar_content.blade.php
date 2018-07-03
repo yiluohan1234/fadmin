@@ -12,6 +12,7 @@
       {{-- <li><a href="{{ route('map') }}"><i class="fa fa-pie-chart"></i> <span>map</span></a></li> --}}
     </ul>
 </li>
+
 {{-- fast analysis --}}
 <li class="treeview">
     <a href="#"><i class="fa fa-bar-chart"></i> <span>经营分析</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -21,6 +22,8 @@
       <li><a href="{{ route('fadmin.analysis.dou') }}"><i class="fa fa-check-circle"></i> <span>DOU</span></a></li>
     </ul>
 </li>
+{{-- wodas manager --}}
+<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/wodas') }}'><i class='fa fa-cloud'></i> <span>{{trans('wodas.wodass')}}</span></a></li>
 {{-- wiki manamger --}}
 @can('wiki_manager')
 <li class="treeview">
