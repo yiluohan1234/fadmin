@@ -10,6 +10,30 @@ use EasyWeChat\Factory;
 
 class MonitorController extends Controller
 {
+
+    public function test()
+    {
+        $cell = array(
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 54]
+        );
+        $data = \Lava::DataTable();
+        $data->addDateColumn('Year')
+            ->addNumberColumn('Sales')
+            ->addNumberColumn('Expenses')
+            ->setDateTimeFormat('Y')
+            ->addRows($cell);
+
+
+
+
+        \Lava::ColumnChart('Stocks', $data, [
+          'title' => 'Stock Market Trends'
+        ]);
+        return view('test', compact('Stocks'));
+    }
     // 地图展示
     public function map()
     {
@@ -75,7 +99,7 @@ class MonitorController extends Controller
         return $result;
 
     }
-    //本地磁盘占用情况
+    //本地磁盘占用情况的数据获取
     public function filesystem()
     {
         $data = Monitor::where("file_type", "O")->orderBy('update_date', 'desc')
@@ -93,6 +117,5 @@ class MonitorController extends Controller
         ];
 
         return $result;
-
     }
 }

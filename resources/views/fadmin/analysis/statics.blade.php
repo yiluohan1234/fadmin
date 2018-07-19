@@ -2,11 +2,11 @@
 @section('header')
     <section class="content-header">
       <h1>
-        2018年各省出账收入分布
+        2018年各省数据分布
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
-        <li class="active">analysis-fees</li>
+        <li class="active">statics</li>
       </ol>
     </section>
 
@@ -16,9 +16,26 @@
         <div class="box-body">
             <div class="page-header">
                 <div class="form-horizontal">
+                    <div class="control-label col-lg-0">
+                    </div>
                     <div class="row">
                         <div class="col-lg-2">
-                            <select id="fee" class="form-control" onchange="selectOnchang(this)">
+                            <select id="prov" class="form-control" onchange="selectChange(this)">
+                                @foreach($province as $p)
+                                    <option value="{{$p['value']}}">{{$p['name']}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                        <div class="col-lg-2">
+                            <select id="category" class="form-control" onchange="selectChange(this)">
+                                @foreach($category as $m)
+                                    <option value="{{$m['value']}}">{{$m['name']}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-lg-2" id="date">
+                            <select id="month" class="form-control" onchange="selectChange(this)">
                                 @foreach($month as $m)
                                     <option value="{{$m->month_id}}">{{substr($m->month_id,0,4)}}年{{substr($m->month_id,-2)}}月</option>
                                 @endforeach
@@ -37,18 +54,40 @@
 <script src="/fadmin/js/echarts.js"></script>
 <script src="/fadmin/js/china.js"></script>
 <script type="text/javascript">
-    function getdata(time){
+    function getdata(prov_id, category_id, month_id){
         $.ajax({
             type : "post",
             async : false,
-            url : '/admin/analysis/fees/fdata/',
-            data : {'time': time},
+            url : '/admin/analysis/statics/sdata/',
+            data : {'prov':prov_id, 'category': category_id, 'month': month_id},
             dataType : "json",
             success : function(result) {
                 if(result){
                     $.each(result, function(i, item) {
-                        names.push(getprovince(item.prov_id));
-                        datas.push((item.total_fee/10000/10000).toFixed(2));
+                        if(prov_id != '0'){
+                            if(category_id == '001'){
+                                names.push(item.month_id);
+                                datas.push((item.user_num/10000).toFixed(2));
+                            }else if(category_id == '002'){
+                                names.push(item.month_id);
+                                datas.push((item.dou_per_user/1024).toFixed(2));
+                            }else{
+                                names.push(item.month_id);
+                                datas.push((item.total_fee/10000/10000).toFixed(2));
+                            }
+                        }else{
+                            if(category_id == '001'){
+                                names.push(getprovince(item.prov_id));
+                                datas.push((item.user_num/10000).toFixed(2));
+                            }else if(category_id == '002'){
+                                names.push(getprovince(item.prov_id));
+                                datas.push((item.dou_per_user/1024).toFixed(2));
+                            }else{
+                                names.push(getprovince(item.prov_id));
+                                datas.push((item.total_fee/10000/10000).toFixed(2));
+                            }
+
+                        }
                     });
                     myFeeChart.hideLoading();    //隐藏加载动画
                     myFeeChart.setOption({        //加载数据图表
@@ -57,7 +96,7 @@
                         },
                         series: [{
                             // 根据名字对应到相应的系列
-                            name: '收入',
+                            name: '数据(用户:万,DOU:G,收入:亿)',
                             data: datas
                         }]
                     });
@@ -108,24 +147,43 @@
         list["097"] = "黑龙江"
         return list[prov_id];
     }
-    function selectOnchang(obj){
-        var value = $(obj).val();
-        names.splice(0,names.length);//清空之前的数据
-        datas.splice(0,datas.length);//清空之前的数据
-        // myChart.clear();
-        getdata(value);
+
+    function selectChange(obj){
+        var prov_value = $('#prov').val();
+        var category_value = $('#category').val();
+        var month_value = $('#month').val();
+
+        var prov_id=document.getElementById('prov');
+        var date_id=document.getElementById('date');
+        if(prov_id.value=="0")
+        {
+            date_id.style.display='';
+            var date_value = $(obj).val();
+            names.splice(0,names.length);//清空之前的数据
+            datas.splice(0,datas.length);//清空之前的数据
+            // myChart.clear();
+            getdata(prov_value, category_value, month_value);
+
+        }else
+        {
+            date_id.style.display='none';
+            names.splice(0,names.length);//清空之前的数据
+            datas.splice(0,datas.length);//清空之前的数据
+            // myChart.clear();
+            getdata(prov_value, category_value, month_value);
+        }
     }
     var myFeeChart = echarts.init(document.getElementById('lineFee'));
-    option = {
+    option1 = {
         color: ['#3398DB'],
-        title : {
-            text: '各省出账用户收入分布'
-        },
+        // title : {
+        //     text: '用户人数分布'
+        // },
         tooltip : {
             trigger: 'axis'
         },
         legend: {
-            data:['收入']
+            data:['数据(用户:万,DOU:G,收入:亿)']
         },
         toolbox: {
             show : true,
@@ -155,13 +213,13 @@
             {
                 type : 'value',
                 axisLabel : {
-                    formatter: '{value} 亿'
+                    formatter: '{value}'
                 }
             }
         ],
         series : [
             {
-                name:'收入',
+                name:'数据',
                 type:'bar',
                 data: [], // y轴的数据，由上个方法中得到的ttls
                 markPoint:{
@@ -172,13 +230,15 @@
             }
         ]
     };
-    myFeeChart.setOption(option,true);
+    myFeeChart.setOption(option1,true);
     myFeeChart.showLoading();
     var names=[];
     var datas=[];
     $(window).on('load', function () {
-        var value = $('#fee').val();
-        getdata(value);
+        var prov_id = $('#prov').val();
+        var category_id = $('#category').val();
+        var month_id = $('#month').val();
+        getdata(prov_id, category_id, month_id);
     });
 </script>
 

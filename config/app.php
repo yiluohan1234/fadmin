@@ -166,6 +166,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -235,6 +237,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'CRUD' => App\Providers\CrudServiceProvider::class,
         'Date' => Jenssegers\Date\Date::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
     ],
 
 ];

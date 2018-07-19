@@ -43,6 +43,7 @@
 
 
 
+
     @yield('after_styles')
     @stack('after_styles')
 
@@ -130,6 +131,7 @@
 
     <script src="/fadmin/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/fadmin/admin-lte/dist/js/adminlte.min.js"></script>
+    <script src="/fadmin/admin-lte/bower_components/chart.js/Chart.js"></script>
 
 
     <!-- page script -->

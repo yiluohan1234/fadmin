@@ -181,5 +181,4 @@
         getdata(value);
     });
 </script>
-
 @endsection

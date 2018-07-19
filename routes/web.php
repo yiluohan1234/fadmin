@@ -46,6 +46,7 @@ function () {
     }
     if (config('fadmin.base.setup_dashboard_routes')) {
         Route::get('dashboard', 'Admin\PagesController@dashboard')->name('fadmin.dashboard');
+        Route::post('dashboard/country/data', 'Admin\PagesController@latest_data_of_country');
         Route::get('/', 'Admin\PagesController@redirect')->name('fadmin');
     }
     // if not otherwise configured, setup the "my account" routes
@@ -136,11 +137,12 @@ Route::group([
     'middleware' => ['web', 'admin'],
     'prefix' => config('fadmin.base.route_prefix', 'admin'),
 ], function () {
-    Route::get('monitor/table', 'Admin\MonitorController@table')->name('table');
+    Route::get('monitor/table', 'Admin\MonitorController@table')->name('fadmin.monitor.table');
     Route::get('monitor/table/data', 'Admin\MonitorController@tabledata');
-    Route::get('monitor/picture', 'Admin\MonitorController@picture')->name('picture');
+    Route::get('monitor/picture', 'Admin\MonitorController@picture')->name('fadmin.monitor.picture');
     Route::post('monitor/picture/odata', 'Admin\MonitorController@odata');
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
+    Route::get('monitor/test', 'Admin\MonitorController@test')->name('test');
     // Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
     // Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
     // Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');
@@ -154,12 +156,14 @@ Route::group([
     'middleware' => ['web', 'admin'],
     'prefix' => config('fadmin.base.route_prefix', 'admin'),
 ], function () {
-    Route::get('analysis/users', 'Admin\AnalysisController@users')->name('fadmin.analysis.users');
-    Route::post('analysis/users/udata', 'Admin\AnalysisController@udata');
-    Route::get('analysis/fees', 'Admin\AnalysisController@fees')->name('fadmin.analysis.fees');
-    Route::post('analysis/fees/fdata', 'Admin\AnalysisController@fdata');
-    Route::get('analysis/dou', 'Admin\AnalysisController@dou')->name('fadmin.analysis.dou');
-    Route::post('analysis/dou/ddata', 'Admin\AnalysisController@ddata');
+    // Route::get('analysis/users', 'Admin\AnalysisController@users')->name('fadmin.analysis.users');
+    // Route::post('analysis/users/udata', 'Admin\AnalysisController@udata');
+    // Route::get('analysis/fees', 'Admin\AnalysisController@fees')->name('fadmin.analysis.fees');
+    // Route::post('analysis/fees/fdata', 'Admin\AnalysisController@fdata');
+    // Route::get('analysis/dou', 'Admin\AnalysisController@dou')->name('fadmin.analysis.dou');
+    // Route::post('analysis/dou/ddata', 'Admin\AnalysisController@ddata');
+    Route::get('analysis/statics', 'Admin\AnalysisController@statics')->name('fadmin.analysis.statics');
+    Route::post('analysis/statics/sdata', 'Admin\AnalysisController@sdata');
 });
 
 /*
