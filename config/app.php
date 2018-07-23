@@ -168,6 +168,7 @@ return [
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -239,6 +240,7 @@ return [
         'Date' => Jenssegers\Date\Date::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

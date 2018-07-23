@@ -41,10 +41,13 @@
                                 @endforeach
                             </select>
                         </div>
+                        {{-- <div class="col-lg-2 pull-right">
+                            <button type="button" class="btn btn-info">下载</button>
+                        </div> --}}
                     </div>
                 </div>
             </div>
-            <div id="lineFee" style="height:500px;"></div>
+            <div id="lineFee" style="height:340px;width:1000px"></div>
         </div>
     </div>
 

@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Timeline;
 use DB;
 use App\Models\Analysis;
+use Zhuzhichao\IpLocationZh\Ip;
+use App\Events\LogEvent;
+use Jenssegers\Agent\Agent;
 
 class PagesController extends Controller
 {
@@ -26,6 +29,8 @@ class PagesController extends Controller
      */
     public function dashboard()
     {
+        //登录成功，触发事件
+        event(new LogEvent(fadmin_auth()->user(), 'login', new Agent(), \Request::getClientIp(), time()));
         // 时间线，按照月份排序
         $timeline = [];
         $time = DB::select("SELECT distinct(date_format(created_at, '%Y-%m')) as time FROM timelines order by time desc");
