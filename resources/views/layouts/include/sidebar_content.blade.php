@@ -9,7 +9,7 @@
     <ul class="treeview-menu">
       <li><a href="{{ route('fadmin.monitor.table') }}"><i class="fa fa-file-text-o"></i> <span>{{trans('monitor.data_update')}}</span></a></li>
       <li><a href="{{ route('fadmin.monitor.picture') }}"><i class="fa fa-file-image-o"></i> <span>{{trans('monitor.picture')}}</span></a></li>
-      <li><a href="{{ route('fadmin.monitor.logShow') }}"><i class="fa fa-file-text-o"></i> <span>{{trans('logs.log_show')}}</span></a></li>
+      <li><a href="{{ route('fadmin.monitor.logShow') }}"><i class="fa fa-terminal"></i> <span>{{trans('logs.log_show')}}</span></a></li>
       {{-- <li><a href="{{ route('map') }}"><i class="fa fa-pie-chart"></i> <span>map</span></a></li> --}}
     </ul>
 </li>
