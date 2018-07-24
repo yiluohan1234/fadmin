@@ -143,6 +143,8 @@ Route::group([
     Route::post('monitor/picture/odata', 'Admin\MonitorController@odata');
     Route::post('monitor/picture/filesystem', 'Admin\MonitorController@filesystem');
     Route::get('monitor/test', 'Admin\MonitorController@test')->name('test');
+    Route::get('monitor/log-show', 'Admin\MonitorController@logShow')->name('fadmin.monitor.logShow');
+    Route::get('monitor/log/show', 'Admin\MonitorController@logdata');
     // Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
     // Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
     // Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');

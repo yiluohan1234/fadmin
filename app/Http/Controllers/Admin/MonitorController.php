@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Monitor;
 use App\Models\Statics;
 use EasyWeChat\Factory;
-
+use App\Models\LogShow;
 class MonitorController extends Controller
 {
 
@@ -117,5 +117,18 @@ class MonitorController extends Controller
         ];
 
         return $result;
+    }
+    // 应用日志的展示
+    public function logShow()
+    {
+        $this->data['title'] = trans('logs.log_show');
+        return view('fadmin.monitor.logShow', $this->data);
+    }
+    // 应用日志的数据获取
+    public function logdata()
+    {
+        $odata = LogShow::all();
+        $data = array_reverse($odata->toArray(),false);
+        return $data;
     }
 }
