@@ -62,7 +62,7 @@ class SendMailWhenFulled extends Command
                         ->take(1)
                         ->get();
 
-        if ($data[0]->filesystem_use_percentage > 20)
+        if ($data[0]->filesystem_use_percentage > 60)
         {
             $message = '互联网运营平台17号机器本地磁盘使用量已经超过60%，请及时处理！';
             $subject = '磁盘使用量超60%';
