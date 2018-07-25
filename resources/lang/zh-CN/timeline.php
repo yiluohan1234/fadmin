@@ -8,4 +8,5 @@ return [
     'Title' => '题目',
     'Action' => '动作',
     'Color' => '颜色',
+    'Content' => '内容'
 ];

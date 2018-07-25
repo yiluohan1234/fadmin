@@ -70,6 +70,15 @@ class AnalysisController extends Controller
             ],[
                 'name' => '收入',
                 'value' => '003'
+            ],[
+                'name' => '高价值用户数',
+                'value' => '004'
+            ],[
+                'name' => '高价值用户人均流量',
+                'value' => '005'
+            ],[
+                'name' => '高价值用户收入',
+                'value' => '006'
             ]
         ];
 
@@ -193,18 +202,48 @@ class AnalysisController extends Controller
             switch($category_id)
             {
                 case '001':
-                    $data = Analysis::where("month_id", $month_id)->orderBy('user_num', 'desc')->get();
+                    $data = Analysis::where("month_id", $month_id)->orderBy('user_num', 'desc')->select(DB::raw('prov_id, round(user_num/10000,2) as data'))->get();
                     break;
                 case '002':
-                    $data = Analysis::where("month_id", $month_id)->orderBy('dou_per_user', 'desc')->get();
+                    $data = Analysis::where("month_id", $month_id)->orderBy('dou', 'desc')->select(DB::raw('prov_id, round(dou/1024,2) as data'))->get();
                     break;
                 case '003':
-                    $data = Analysis::where("month_id", $month_id)->orderBy('total_fee', 'desc')->get();
+                    $data = Analysis::where("month_id", $month_id)->orderBy('total_fee', 'desc')->select(DB::raw('prov_id, round(total_fee/10000/10000,2) as data'))->get();
+                    break;
+                case '004':
+                    $data = Analysis::where("month_id", $month_id)->orderBy('hightv_user_num', 'desc')->select(DB::raw('prov_id, round(hightv_user_num/10000,2) as data'))->get();
+                    break;
+                case '005':
+                    $data = Analysis::where("month_id", $month_id)->orderBy('hightv_dou', 'desc')->select(DB::raw('prov_id, round(hightv_dou/1024,2) as data'))->get();
+                    break;
+                case '006':
+                    $data = Analysis::where("month_id", $month_id)->orderBy('hightv_total_fee', 'desc')->select(DB::raw('prov_id, round(hightv_total_fee/10000/10000,2) as data'))->get();
                     break;
             }
         }else
         {
-            $data = Analysis::where("prov_id", $prov_id)->orderBy('month_id')->take(6)->get();
+            switch($category_id)
+            {
+                case '001':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(user_num/10000,2) as data'))->take(6)->get();
+                    break;
+                case '002':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(dou/1024,2) as data'))->take(6)->get();
+                    break;
+                case '003':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(total_fee/10000/10000,2) as data'))->take(6)->get();
+                    break;
+                case '004':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(hightv_user_num/10000,2) as data'))->take(6)->get();
+                    break;
+                case '005':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(hightv_dou/1024,2) as data'))->take(6)->get();
+                    break;
+                case '006':
+                    $reverse_data = Analysis::where("prov_id", $prov_id)->orderBy('month_id', 'desc')->select(DB::raw('month_id, round(hightv_total_fee/10000/10000,2) as data'))->take(6)->get();
+                    break;
+            }
+            $data = array_reverse($reverse_data->toArray(),false);
         }
 
         return $data;

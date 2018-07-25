@@ -17,14 +17,18 @@ class CreateAnalysesTable extends Migration
             $table->string('prov_id', 3)->comment('省分ID');
             $table->string('month_id', 6)->comment('月份ID');
             $table->integer('user_num')->comment('用户总数');
-            $table->double('total_fee')->comment('用户总消费(M)');
+            $table->double('total_fee')->comment('用户总消费(元)');
+            $table->double('total_fee_per_user')->comment('用户人均消费(元)');
             $table->double('onnet_time_per_user')->comment('用户均在网时长');
-            $table->double('dou')->comment('用户总流量(M)');
-            $table->double('dou_per_user')->comment('用户均流量(M)');
-            $table->double('call_duration_per_user')->comment('用户均通话时长');
-            $table->integer('higthv_user_num')->comment('高价值用户总数');
-            $table->double('higthv_total_fee')->comment('高价值用户总消费');
-            $table->double('higthv_total_fee_per_user')->comment('高价值用户均消费');
+            $table->double('total_traffic')->comment('用户总流量(M)');
+            $table->double('dou')->comment('用户均流量(M)');
+            $table->double('mou')->comment('用户均通话时长');
+            $table->integer('hightv_user_num')->comment('高价值用户总数');
+            $table->double('hightv_total_fee')->comment('高价值用户总消费');
+            $table->double('hhightv_total_fee_per_user')->comment('高价值用户均消费');
+            $table->double('hightv_total_traffic')->comment('高价值用户总的流量');
+            $table->double('hightv_dou')->comment('高价值用户dou');
+            $table->double('hightv_mou')->comment('高价值用户mou');
         });
     }
 

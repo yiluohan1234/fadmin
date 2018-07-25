@@ -30,7 +30,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
+            <h3>{{$latest_data_show[0]['data']}}<sup style="font-size: 20px">亿</sup></h3>
 
             <p>用户数</p>
           </div>
@@ -45,7 +45,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <h3>{{$latest_data_show[1]['data']}}<sup style="font-size: 20px">亿</sup></h3>
 
             <p>收入</p>
           </div>
@@ -137,10 +137,10 @@
                       </td>
                       <td>
                         @if($v['percentage']> 0)
-                          <span class="description-percentage text-green">
+                          <span class="description-percentage text-red">
                           <i class="fa fa-caret-up"></i>
                         @elseif ($v['percentage'] < 0)
-                          <span class="description-percentage text-red">
+                          <span class="description-percentage text-green">
                           <i class="fa fa-caret-down"></i>
                         @else
                           <span class="description-percentage text-yellow">

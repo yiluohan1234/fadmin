@@ -68,28 +68,11 @@
                 if(result){
                     $.each(result, function(i, item) {
                         if(prov_id != '0'){
-                            if(category_id == '001'){
-                                names.push(item.month_id);
-                                datas.push((item.user_num/10000).toFixed(2));
-                            }else if(category_id == '002'){
-                                names.push(item.month_id);
-                                datas.push((item.dou_per_user/1024).toFixed(2));
-                            }else{
-                                names.push(item.month_id);
-                                datas.push((item.total_fee/10000/10000).toFixed(2));
-                            }
+                            names.push(item.month_id);
+                            datas.push(item.data);
                         }else{
-                            if(category_id == '001'){
-                                names.push(getprovince(item.prov_id));
-                                datas.push((item.user_num/10000).toFixed(2));
-                            }else if(category_id == '002'){
-                                names.push(getprovince(item.prov_id));
-                                datas.push((item.dou_per_user/1024).toFixed(2));
-                            }else{
-                                names.push(getprovince(item.prov_id));
-                                datas.push((item.total_fee/10000/10000).toFixed(2));
-                            }
-
+                            names.push(getprovince(item.prov_id));
+                            datas.push(item.data);
                         }
                     });
                     myFeeChart.hideLoading();    //隐藏加载动画
@@ -99,7 +82,7 @@
                         },
                         series: [{
                             // 根据名字对应到相应的系列
-                            name: '数据(用户:万,DOU:G,收入:亿)',
+                            name: '数据',
                             data: datas
                         }]
                     });
@@ -186,7 +169,7 @@
             trigger: 'axis'
         },
         legend: {
-            data:['数据(用户:万,DOU:G,收入:亿)']
+            data:['数据']
         },
         toolbox: {
             show : true,
@@ -216,8 +199,18 @@
             {
                 type : 'value',
                 axisLabel : {
-                    formatter: '{value}'
-                }
+                    formatter: function (params) {
+                        $cagtegory_id = $('#category').val()
+                        if ($cagtegory_id == '001' || $cagtegory_id == '004') {
+                           return params + " 万";
+                        }
+                        else if($cagtegory_id == '002' || $cagtegory_id == '005'){
+                            return params + " G";
+                        }else {
+                            return params + " 亿";
+                        }
+                    }
+               }
             }
         ],
         series : [
