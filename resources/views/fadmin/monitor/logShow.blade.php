@@ -64,18 +64,22 @@ $('#table').bootstrapTable({
         field: "state",
         checkbox:true,
     },{
-        field: 'user_id',
+        field: 'user_name',
         sortable: true,
-        title: '{{trans('logs.user_id')}}'
+        title: '{{trans('logs.user_name')}}'
     }, {
-        field: 'login_time',
+        field: 'action_time',
         sortable: true,
-        title: '{{trans('logs.login_time')}}'
+        title: '{{trans('logs.action_time')}}'
     }, {
         field: 'action',
         sortable: true,
         title: '{{trans('logs.action')}}'
     }, {
+        field: 'content',
+        sortable: true,
+        title: '{{trans('logs.content')}}'
+    },{
         field: 'ip',
         sortable: true,
         title: '{{trans('logs.ip')}}'

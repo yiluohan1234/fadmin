@@ -9,8 +9,9 @@ return [
     | The following language lines are used for Laravel Backpack - Settings
     |
     */
-    'user_id'             => 'user_id',
-    'login_time'          => 'login time',
+    'user_name'           => 'user_name',
+    'content'             => 'content',
+    'action_time'         => 'action time',
     'action'              => 'action',
     'address'             => 'address',
     'device'              => 'device',

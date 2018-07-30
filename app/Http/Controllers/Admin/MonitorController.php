@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Monitor;
 use App\Models\Statics;
 use EasyWeChat\Factory;
-use App\Models\LogShow;
+use App\Models\Logging;
 class MonitorController extends Controller
 {
 
@@ -127,7 +127,7 @@ class MonitorController extends Controller
     // 应用日志的数据获取
     public function logdata()
     {
-        $odata = LogShow::all();
+        $odata = Logging::all();
         $data = array_reverse($odata->toArray(),false);
         return $data;
     }

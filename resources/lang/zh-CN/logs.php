@@ -9,8 +9,9 @@ return [
     | The following language lines are used for Laravel Backpack - Settings
     |
     */
-    'user_id'             => '用户ID',
-    'login_time'          => '操作时间',
+    'user_name'           => '用户昵称',
+    'action_time'         => '操作时间',
+    'content'      => '操作详情',
     'action'              => '操作',
     'address'             => '地址',
     'device'              => '设备',

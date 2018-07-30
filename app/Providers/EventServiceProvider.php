@@ -16,10 +16,6 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
-        //添加日志事件及对应监听器，一个事件可绑定多个监听器
-        'App\Events\LogEvent' => [
-            'App\Listeners\LogListener',
-        ],
     ];
 
     /**
