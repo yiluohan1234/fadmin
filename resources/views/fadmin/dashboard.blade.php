@@ -165,7 +165,7 @@
       <!-- /.col -->
     </div>
     <!-- 收入，dou展示 -->
-
+    @if(getenv('APP_ENV') == 'local')
     @role('admin')
     @if(count($timeline) != 0)
     <div class="box">
@@ -213,6 +213,7 @@
     </div>
     @endif
     @endrole
+    @endif
 @endsection
 @section('after_scripts')
 <script src="/fadmin/js/echarts.js"></script>

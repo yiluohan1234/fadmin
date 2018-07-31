@@ -29,11 +29,14 @@ class PagesController extends Controller
     {
         //登录成功，触发事件
         LoggingV::info('login', '用户登录');
-        // 时间线，按照月份排序
-        $timeline = [];
-        $time = DB::select("SELECT distinct(FROM_UNIXTIME(UNIX_TIMESTAMP(created_at),'%Y-%m')) as time FROM timelines order by time desc");
-        foreach($time as $t){
-            array_push($timeline,[$t->time => Timeline::where('date', 'like', "$t->time%")->orderBy('created_at', 'desc')->get()]);
+        if(getenv('APP_ENV') == 'local'){
+            // 时间线，按照月份排序
+            $timeline = [];
+            $time = DB::select("SELECT distinct(date_format(created_at, '%Y-%m')) as time FROM timelines order by time desc");
+            foreach($time as $t){
+                array_push($timeline,[$t->time => Timeline::where('date', 'like', "$t->time%")->orderBy('created_at', 'desc')->get()]);
+            }
+            $this->data['timeline'] = $timeline;
         }
 
         // 总的数据量
@@ -112,7 +115,6 @@ class PagesController extends Controller
             ];
         }
         $this->data['title'] = trans('base.dashboard'); // set the page title
-        $this->data['timeline'] = $timeline;
         $this->data['O_num'] = $O_num;
         $this->data['label_num'] = $label_num;
         $this->data['month_id'] = empty($country_all_data)?$country_all_data[0]->month_id:0;
