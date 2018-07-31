@@ -32,7 +32,7 @@
           <div class="inner">
             <h3>{{$latest_data_show[0]['data']}}<sup style="font-size: 20px">亿</sup></h3>
 
-            <p>用户数</p>
+            <p>{{trans('dashboard.users')}}</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
@@ -47,7 +47,7 @@
           <div class="inner">
             <h3>{{$latest_data_show[1]['data']}}<sup style="font-size: 20px">亿</sup></h3>
 
-            <p>收入</p>
+            <p>{{trans('dashboard.fee')}}</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
@@ -62,7 +62,7 @@
           <div class="inner">
             <h3>{{$label_num}}</h3>
 
-            <p>标签据文件量</p>
+            <p>{{trans('dashboard.o files')}}</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -77,7 +77,7 @@
           <div class="inner">
             <h3>{{$O_num}}</h3>
 
-            <p>O域数据文件量</p>
+            <p>{{trans('dashboard.label files')}}</p>
             {{-- <p>↑&nbsp;0.01%</p> --}}
           </div>
           <div class="icon">
@@ -94,7 +94,7 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">月度报告</h3>
+            <h3 class="box-title">{{trans('dashboard.Monthly report')}}</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -125,9 +125,9 @@
                 <div class="box-body no-padding">
                   <table class="table table-condensed">
                     <tr>
-                      <th>名称</th>
-                      <th>数据</th>
-                      <th>增长率</th>
+                      <th>{{trans('dashboard.name')}}</th>
+                      <th>{{trans('dashboard.data')}}</th>
+                      <th>{{trans('dashboard.growth rate')}}</th>
                     </tr>
                     @foreach($latest_data_show as $v)
                     <tr>
@@ -241,11 +241,11 @@
                         },
                         series: [{
                             // 根据名字对应到相应的系列
-                            name: '总收入',
+                            name: '{{trans('dashboard.fee')}}',
                             data: ttls_O
                         },
                         {
-                            name: '高价值用户总收入',
+                            name: '{{trans('dashboard.High value user revenue')}}',
                             data: ttls_l
                         }
                         ]
@@ -263,13 +263,13 @@
     var myLineChart = echarts.init(document.getElementById('container'));
     option = {
         title : {
-            text: '用户近6个月收入情况'
+            text: '{{trans('dashboard.Users income in the past 6 months')}}'
         },
         tooltip : {
             trigger: 'axis'
         },
         legend: {
-            data:['总收入', '高价值用户总收入']
+            data:['{{trans('dashboard.fee')}}', '{{trans('dashboard.High value user revenue')}}']
         },
         toolbox: {
             show : false,
