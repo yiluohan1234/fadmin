@@ -27,7 +27,7 @@
         "venturecraft/revisionable": "1.*",
         "viacreative/sudo-su": "~1.1",
         "zhuzhichao/ip-location-zh": "^2.4",
-        "fzaninotto/faker": "~1.4",
+        "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
