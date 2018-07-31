@@ -38,48 +38,84 @@ class PagesController extends Controller
 
         // 总的数据量
         $file_num = DB::select("select file_type,sum(file_num) as file_num, sum(space_size)/1024/1024 as space_size from monitors group by file_type");
-        $label_num = $file_num[0]->file_num;
-        $O_num = $file_num[1]->file_num;
+        if(count($file_num) == 0){
+            $label_num = 0;
+            $O_num = 0;
+        }else{
+            $label_num = $file_num[0]->file_num;
+            $O_num = $file_num[1]->file_num;
+        }
+
         // 最近一个月的用户数，收入，DOU，高价值用户数
         $country_all_data = Analysis::select(DB::raw('month_id, sum(user_num) as user_num, sum(total_fee) as total_fee, (sum(total_traffic)/sum(user_num)) as dou, sum(hightv_user_num) as hightv_user_num, sum(hightv_total_fee) as hightv_total_fee'))
                         ->groupBy('month_id')
                         ->orderBy('month_id', 'desc')
                         ->take(2)
                         ->get();
-        $latest_data_show =
-        [
+        if(count($country_all_data) == 0){
+            $latest_data_show =
             [
-                'name' => '用户数(亿)',
-                'data' => round($country_all_data[0]->user_num/10000/10000, 2),
-                'percentage' => round(($country_all_data[0]->user_num -$country_all_data[1]->user_num)*100/$country_all_data[1]->user_num, 2)
-            ],
+                [
+                    'name' => '用户数(亿)',
+                    'data' => 0,
+                    'percentage' => 0
+                ],
+                [
+                    'name' => '收入(亿)',
+                    'data' => 0,
+                    'percentage' => 0
+                ],
+                [
+                    'name' => '高价值用户(亿)',
+                    'data' => 0,
+                    'percentage' => 0
+                ],
+                [
+                    'name' => '高价值用户收入(亿)',
+                    'data' => 0,
+                    'percentage' => 0
+                ],
+                [
+                    'name' => 'DOU(G)',
+                    'data' => 0,
+                    'percentage' => 0
+                ]
+            ];
+        }else{
+            $latest_data_show =
             [
-                'name' => '收入(亿)',
-                'data' => round($country_all_data[0]->total_fee/10000/10000, 2),
-                'percentage' => round(($country_all_data[0]->total_fee - $country_all_data[1]->total_fee)*100/$country_all_data[1]->total_fee, 2)
-            ],
-            [
-                'name' => '高价值用户(亿)',
-                'data' => round($country_all_data[0]->hightv_user_num/10000/10000, 2),
-                'percentage' => round(($country_all_data[0]->hightv_user_num - $country_all_data[1]->hightv_user_num)*100/$country_all_data[1]->hightv_user_num,2)
-            ],
-            [
-                'name' => '高价值用户收入(亿)',
-                'data' => round($country_all_data[0]->hightv_total_fee/10000/10000, 2),
-                'percentage' => round(($country_all_data[0]->hightv_total_fee - $country_all_data[1]->hightv_total_fee)*100/$country_all_data[1]->hightv_total_fee,2)
-            ],
-            [
-                'name' => 'DOU(G)',
-                'data' => round($country_all_data[0]->dou/1024, 2),
-                'percentage' => round(($country_all_data[0]->dou - $country_all_data[1]->dou)*100/$country_all_data[1]->dou,2)
-            ]
-        ];
-
+                [
+                    'name' => '用户数(亿)',
+                    'data' => round($country_all_data[0]->user_num/10000/10000, 2),
+                    'percentage' => round(($country_all_data[0]->user_num -$country_all_data[1]->user_num)*100/$country_all_data[1]->user_num, 2)
+                ],
+                [
+                    'name' => '收入(亿)',
+                    'data' => round($country_all_data[0]->total_fee/10000/10000, 2),
+                    'percentage' => round(($country_all_data[0]->total_fee - $country_all_data[1]->total_fee)*100/$country_all_data[1]->total_fee, 2)
+                ],
+                [
+                    'name' => '高价值用户(亿)',
+                    'data' => round($country_all_data[0]->hightv_user_num/10000/10000, 2),
+                    'percentage' => round(($country_all_data[0]->hightv_user_num - $country_all_data[1]->hightv_user_num)*100/$country_all_data[1]->hightv_user_num,2)
+                ],
+                [
+                    'name' => '高价值用户收入(亿)',
+                    'data' => round($country_all_data[0]->hightv_total_fee/10000/10000, 2),
+                    'percentage' => round(($country_all_data[0]->hightv_total_fee - $country_all_data[1]->hightv_total_fee)*100/$country_all_data[1]->hightv_total_fee,2)
+                ],
+                [
+                    'name' => 'DOU(G)',
+                    'data' => round($country_all_data[0]->dou/1024, 2),
+                    'percentage' => round(($country_all_data[0]->dou - $country_all_data[1]->dou)*100/$country_all_data[1]->dou,2)
+                ]
+            ];
+        }
         $this->data['title'] = trans('base.dashboard'); // set the page title
         $this->data['timeline'] = $timeline;
         $this->data['O_num'] = $O_num;
         $this->data['label_num'] = $label_num;
-        $this->data['month_id'] = $country_all_data[0]->month_id;
+        $this->data['month_id'] = empty($country_all_data)?$country_all_data[0]->month_id:0;
         $this->data['latest_data_show'] = $latest_data_show;
 
 
