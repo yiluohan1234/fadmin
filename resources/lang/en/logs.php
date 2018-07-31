@@ -20,6 +20,6 @@ return [
     'language'            => 'language',
 
     'ip'                  => 'ip',
-    'device_type'         => '设备device_type类型',
+    'device_type'         => 'device_type',
     'log_show'            => 'log show'
 ];

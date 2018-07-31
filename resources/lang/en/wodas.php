@@ -12,8 +12,11 @@ return [
     'name'             => 'Name',
     'value'            => 'Value',
     'description'      => 'Description',
-    'setting_singular' => 'setting',
-    'setting_plural'   => 'settings',
-    'description'      => '备注',
+    'setting_singular' => 'Wodas',
+    'setting_plural'   => 'Wodas',
+
+    'wodas'             => 'Wodas',
+    'wodass'            => 'Wodas',
+    'description'      => 'remark',
 
 ];

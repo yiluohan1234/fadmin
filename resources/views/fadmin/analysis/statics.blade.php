@@ -2,7 +2,7 @@
 @section('header')
     <section class="content-header">
       <h1>
-        2018年各省数据分布
+        {{substr($month[0]->month_id,0,4)}}年各省数据分布
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>

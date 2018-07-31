@@ -16,16 +16,16 @@
 
 {{-- fast analysis --}}
 <li class="treeview">
-    <a href="#"><i class="fa fa-bar-chart"></i> <span>经营分析</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-bar-chart"></i> <span>{{trans('analysis.management analysis')}}</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
-      <li><a href="{{ route('fadmin.analysis.statics') }}"><i class="fa fa-check-circle"></i> <span>出账人数、收入、DOU</span></a></li>
+      <li><a href="{{ route('fadmin.analysis.statics') }}"><i class="fa fa-check-circle"></i> <span>{{trans('analysis.Users fee DOU')}}</span></a></li>
       {{-- <li><a href="{{ route('fadmin.analysis.users') }}"><i class="fa fa-check-circle"></i> <span>出账人数</span></a></li>
       <li><a href="{{ route('fadmin.analysis.fees') }}"><i class="fa fa-check-circle"></i> <span>出账收入</span></a></li>
       <li><a href="{{ route('fadmin.analysis.dou') }}"><i class="fa fa-check-circle"></i> <span>DOU</span></a></li> --}}
     </ul>
 </li>
 {{-- wodas manager --}}
-<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/wodas') }}'><i class='fa fa-cloud'></i> <span>{{trans('wodas.wodass')}}</span></a></li>
+<li><a href='{{ url(config('fadmin.base.route_prefix', 'admin') . '/wodas') }}'><i class='fa fa-cloud'></i> <span>{{trans('wodas.wodas')}}</span></a></li>
 {{-- wiki manamger --}}
 @can('wiki_manager')
 <li class="treeview">
@@ -79,7 +79,7 @@
 </li>
 @endcan
 
-<li class="header">友情链接</li>
+<li class="header">{{trans('layouts.Links')}}</li>
 <li><a href="http://layer.layui.com/" target="_blank"><i class="fa fa-align-justify"></i> <span>layer</span></a></li>
 <li><a href="http://fontawesome.dashgame.com/" target="_blank"><i class="fa fa-dribbble"></i> <span>icons</span></a></li>
 <li><a href="https://laravel-china.org/docs/laravel/5.5" target="_blank"><i class="fa fa-file"></i> <span>laravel5.5</span></a></li>

@@ -26,11 +26,12 @@
         "spatie/laravel-permission": "^1.4",
         "venturecraft/revisionable": "1.*",
         "viacreative/sudo-su": "~1.1",
-        "zhuzhichao/ip-location-zh": "^2.4"
+        "zhuzhichao/ip-location-zh": "^2.4",
+        "fzaninotto/faker": "~1.4",
     },
     "require-dev": {
         "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
+        //"fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0",
         "symfony/thanks": "^1.0"
