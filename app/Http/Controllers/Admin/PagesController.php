@@ -31,7 +31,7 @@ class PagesController extends Controller
         LoggingV::info('login', '用户登录');
         // 时间线，按照月份排序
         $timeline = [];
-        $time = DB::select("SELECT distinct(date_format(created_at, '%Y-%m')) as time FROM timelines order by time desc");
+        $time = DB::select("SELECT distinct(FROM_UNIXTIME(UNIX_TIMESTAMP(created_at),'%Y-%m')) as time FROM timelines order by time desc");
         foreach($time as $t){
             array_push($timeline,[$t->time => Timeline::where('date', 'like', "$t->time%")->orderBy('created_at', 'desc')->get()]);
         }

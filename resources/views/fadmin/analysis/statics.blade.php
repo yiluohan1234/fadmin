@@ -2,7 +2,11 @@
 @section('header')
     <section class="content-header">
       <h1>
+        @if(count($month) == 0)
+        没有数据
+        @else
         {{substr($month[0]->month_id,0,4)}}年各省数据分布
+        @endif
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('fadmin.base.route_prefix', 'admin').'/dashboard') }}">{{ config('fadmin.base.project_name') }}</a></li>
@@ -50,7 +54,6 @@
             <div id="lineFee" style="height:340px;width:1000px"></div>
         </div>
     </div>
-
 
 @endsection
 @section('after_scripts')
