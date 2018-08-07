@@ -17,7 +17,7 @@ return [
     'save_action_save_and_new' => '保存并添加新项',
     'save_action_save_and_edit' => '保存并编辑此项',
     'save_action_save_and_back' => '保存返回',
-    'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
+    'save_action_changed_notification' => '默认操作已经被更改.',
 
     // Create form
     'add'                 => '添加',

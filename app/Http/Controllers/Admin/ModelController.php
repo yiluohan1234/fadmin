@@ -36,7 +36,7 @@ class ModelController extends CrudController
                             ]);
         $this->crud->addColumn([
                                 'name' => 'value',
-                                'label' => trans('models.value'),
+                                'label' => trans('models.value')
                             ]);
         // ------ CRUD FIELDS
         $this->crud->addField([
@@ -53,6 +53,7 @@ class ModelController extends CrudController
         $this->crud->addField([
                                 'name' => 'value',
                                 'label' => trans('models.value'),
+                                'type' => 'browse'
                             ]);
     }
     public function store(StoreRequest $request)
