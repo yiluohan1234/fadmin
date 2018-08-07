@@ -114,6 +114,7 @@ Route::group([
     CRUD::resource('article', 'Admin\ArticleController');
     CRUD::resource('category', 'Admin\CategoryController');
     CRUD::resource('tag', 'Admin\TagController');
+    CRUD::resource('model', 'Admin\ModelController');
 });
 /*
 |--------------------------------------------------------------------------

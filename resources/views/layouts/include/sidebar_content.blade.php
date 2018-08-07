@@ -34,6 +34,7 @@
       <li><a href="{{ fadmin_url('article') }}"><i class="fa fa-newspaper-o"></i> <span>{{trans('blogs.Articles')}}</span></a></li>
       <li><a href="{{ fadmin_url('category') }}"><i class="fa fa-list"></i> <span>{{trans('blogs.Categories')}}</span></a></li>
       <li><a href="{{ fadmin_url('tag') }}"><i class="fa fa-tag"></i> <span>{{trans('blogs.Tags')}}</span></a></li>
+      <li><a href="{{ fadmin_url('model') }}"><i class="fa fa-diamond"></i> <span>{{trans('models.model')}}</span></a></li>
     </ul>
 </li>
 @endcan
