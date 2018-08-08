@@ -64,7 +64,7 @@
         $.ajax({
             type : "post",
             async : false,
-            url : '/admin/analysis/statics/sdata/',
+            url : '/admin/analysis/statics/sdata',
             data : {'prov':prov_id, 'category': category_id, 'month': month_id},
             dataType : "json",
             success : function(result) {
