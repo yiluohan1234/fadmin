@@ -218,6 +218,54 @@
 @section('after_scripts')
 <script src="/fadmin/js/echarts.js"></script>
 <script type="text/javascript">
+    var width;
+    var height;
+    var myChart;
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            height = document.body.clientHeight/4
+            width = document.body.clientWidth
+            // alert(height)
+            $("#container").css("width",width-30);
+            $("#container").css("height",height);
+            setEcharts();
+            $(window).resize(function() {
+                width = document.body.clientWidth
+                height = document.body.clientHeight/4
+                $("#container").css("width",width-30);
+                $("#container").css("height",height);
+            });
+
+        } else {
+            // alert("pc");
+            //自适应设置
+            width = $(window).width();
+            height = $(window).height();
+            // alert(height)
+            $("#container").css("width",width-35);
+            $("#container").css("height",height-360);
+            setEcharts();
+            $(window).resize(function() {
+                width = $(window).width();
+                height = $(window).height();
+                $("#container").css("width",width-35);
+                $("#container").css("height",height-360);
+            });
+        }
+    }
+
+    window.onload=function(){
+        browserRedirect()
+    }
     function getdata(ec){
         $.ajax({
             type : "post",
@@ -261,6 +309,8 @@
         })
     }
     var myLineChart = echarts.init(document.getElementById('container'));
+    //自适应
+    window.onresize = myLineChart.resize;
     option = {
         title : {
             text: '{{trans('dashboard.Users income in the past 6 months')}}'
