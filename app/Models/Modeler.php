@@ -47,7 +47,7 @@ class Modeler extends Model
     */
     public function articles()
     {
-        return $this->belongsToMany('App\Models\Article', 'article_tag');
+        return $this->hasMany('App\Models\Article');
     }
     /*
     |--------------------------------------------------------------------------

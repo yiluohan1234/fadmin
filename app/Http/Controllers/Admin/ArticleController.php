@@ -52,6 +52,14 @@ class ArticleController extends CrudController
                                 'attribute' => 'name',
                                 'model' => "App\Models\Category",
                             ]);
+        $this->crud->addColumn([
+                                'label' => trans('blogs.Model'),
+                                'type' => 'select',
+                                'name' => 'model_id',
+                                'entity' => 'models',
+                                'attribute' => 'name',
+                                'model' => "App\Models\Modeler",
+                            ]);
         // ------ CRUD FIELDS
         $this->crud->addField([    // TEXT
                                 'name' => 'title',
@@ -95,6 +103,14 @@ class ArticleController extends CrudController
                                 'entity' => 'category',
                                 'attribute' => 'name',
                                 'model' => "App\Models\Category",
+                            ]);
+        $this->crud->addField([    // SELECT
+                                'label' => trans('blogs.Model'),
+                                'type' => 'select2',
+                                'name' => 'model_id',
+                                'entity' => 'models',
+                                'attribute' => 'name',
+                                'model' => "App\Models\Modeler",
                             ]);
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
                                 'label' => trans('blogs.Tags'),

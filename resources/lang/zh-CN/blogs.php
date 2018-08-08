@@ -25,5 +25,6 @@ return [
     'category' => '分类',
     'categories' => '分类',
     'Parent'=>'父级',
+    'Model' => '模型',
 
 ];

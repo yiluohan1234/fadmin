@@ -26,4 +26,5 @@ return [
     'category' => 'category',
     'categories' => 'categories',
     'Parent'=>'Parent',
+    'Model' => 'Model',
 ];
