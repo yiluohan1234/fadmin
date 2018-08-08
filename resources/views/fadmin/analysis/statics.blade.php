@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div id="lineFee" style="height:340px;width:1000px"></div>
+            <div id="lineFee" style="height:340px;width:90%"></div>
         </div>
     </div>
 
@@ -238,6 +238,7 @@
         var category_id = $('#category').val();
         var month_id = $('#month').val();
         getdata(prov_id, category_id, month_id);
+        window.onresize = myFeeChart.resize;
     });
 </script>
 
