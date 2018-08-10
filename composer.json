@@ -13,6 +13,7 @@
         "doctrine/dbal": "^2.7",
         "fideloper/proxy": "~3.3",
         "fx3costa/laravelchartjs": "^2.5",
+        "fzaninotto/faker": "~1.4",
         "intervention/image": "^2.4",
         "jenssegers/agent": "^2.6",
         "jenssegers/date": "^3.4",
@@ -26,7 +27,6 @@
         "spatie/laravel-permission": "^1.4",
         "venturecraft/revisionable": "1.*",
         "viacreative/sudo-su": "~1.1",
-        "fzaninotto/faker": "~1.4",
         "zhuzhichao/ip-location-zh": "^2.4"
     },
     "require-dev": {

@@ -35,9 +35,10 @@
 @push('crud_fields_scripts')
 <script>
     var testEditor = editormd("editormd-{{ $field['name'] }}",{
-        width :"90%",
+        width :"100%",
         height :640,
         path :"/fadmin/editormd/lib/",
+        watch : false,
         saveHTMLToTextarea :true
     });
     testEditor.getHTML();// 获取 Textarea 保存的 HTML 源码
