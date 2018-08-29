@@ -2,7 +2,7 @@
 
 namespace App\Orgs\Crud\PanelTraits;
 
-use App\Exception\AccessDeniedException;
+use App\Exceptions\AccessDeniedException;
 
 trait Access
 {

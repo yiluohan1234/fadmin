@@ -8,8 +8,21 @@ use App\Models\Monitor;
 use App\Models\Statics;
 use EasyWeChat\Factory;
 use App\Models\Logging;
+use Illuminate\Support\Facades\Storage;
+
 class MonitorController extends Controller
 {
+    public function run()
+    {
+        $path = public_path();
+        $command_file = 'uploads/python/test.py';
+        $file = $path. '/' . $command_file;
+        $command = 'python ' . $file;
+        $output = exec($command, $data);
+
+
+        return $data;
+    }
 
     public function test()
     {

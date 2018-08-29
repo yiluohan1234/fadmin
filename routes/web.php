@@ -149,6 +149,7 @@ Route::group([
     // Route::get('monitor/map', 'Admin\MonitorController@map')->name('map');
     // Route::post('monitor/map/mdata', 'Admin\MonitorController@mdata');
     // Route::post('monitor/map/mddata/', 'Admin\MonitorController@mddata');
+    Route::get('monitor/run', 'Admin\MonitorController@run');
 });
 /*
 |--------------------------------------------------------------------------
