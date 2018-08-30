@@ -117,7 +117,7 @@ class PagesController extends Controller
         $this->data['title'] = trans('base.dashboard'); // set the page title
         $this->data['O_num'] = $O_num;
         $this->data['label_num'] = $label_num;
-        $this->data['month_id'] = empty($country_all_data)?$country_all_data[0]->month_id:0;
+        $this->data['month_id'] = empty($country_all_data)?0:$country_all_data[0]->month_id;
         $this->data['latest_data_show'] = $latest_data_show;
 
 
