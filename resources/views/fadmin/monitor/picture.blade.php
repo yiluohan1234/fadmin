@@ -29,6 +29,11 @@
 @endif
 <script type="text/javascript">
     function getdata(ec){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
         $.ajax({
             type : "post",
             async : false,

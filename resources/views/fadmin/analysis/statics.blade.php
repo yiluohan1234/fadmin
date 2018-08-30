@@ -61,6 +61,11 @@
 <script src="/fadmin/js/china.js"></script>
 <script type="text/javascript">
     function getdata(prov_id, category_id, month_id){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             type : "post",
             async : false,
