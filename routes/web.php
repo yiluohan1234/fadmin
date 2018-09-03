@@ -128,6 +128,7 @@ Route::group([
     CRUD::resource('setting', 'Admin\SettingController');
     CRUD::resource('link', 'Admin\LinksController');
     CRUD::resource('timeline', 'Admin\TimelineController');
+    //定时任务
     Route::get('schedule', 'Admin\ScheduleController@index')->name('fadmin.schedule.index');
     Route::post('schedule/run', 'Admin\ScheduleController@run');
 });

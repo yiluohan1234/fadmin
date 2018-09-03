@@ -13,7 +13,7 @@ class ScheduleController extends Controller
         $schedule = new Schedule();
         $events = $schedule->getTasks();
         //dd(storage_path('app/task-schedule.output'));
-        return view('schedule.index', compact('events'));
+        return view('fadmin.schedule.index', compact('events'));
     }
     public function run(Request $request)
     {
