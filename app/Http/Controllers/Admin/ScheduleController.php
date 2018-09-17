@@ -8,12 +8,15 @@ use App\Orgs\Schedule;
 
 class ScheduleController extends Controller
 {
+    protected $data = [];
     public function index()
     {
+        $this->data['title'] = trans('schedule.Task schedules');
         $schedule = new Schedule();
         $events = $schedule->getTasks();
+        $this->data['events'] = $events;
         //dd(storage_path('app/task-schedule.output'));
-        return view('fadmin.schedule.index', compact('events'));
+        return view('fadmin.schedule.index', $this->data);
     }
     public function run(Request $request)
     {
