@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Analysis;
 use DB;
+use App\Orgs\LoggingV;
 
 class AnalysisController extends Controller
 {
@@ -59,6 +60,7 @@ class AnalysisController extends Controller
     }
     public function statics()
     {
+        LoggingV::info("monitor", '经营分析');
         $month = Analysis::select(DB::raw('DISTINCT month_id as month_id'))->orderBy('month_id', 'desc')->get();
         $category = [
             [

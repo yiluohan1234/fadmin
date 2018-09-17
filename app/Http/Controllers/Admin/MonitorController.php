@@ -9,6 +9,7 @@ use App\Models\Statics;
 use EasyWeChat\Factory;
 use App\Models\Logging;
 use Illuminate\Support\Facades\Storage;
+use App\Orgs\LoggingV;
 
 class MonitorController extends Controller
 {
@@ -76,6 +77,7 @@ class MonitorController extends Controller
     // 监控表格的展示
     public function table()
     {
+        LoggingV::info('monitor', '数据更新列表');
         $this->data['title'] = trans('monitor.monitor_data');
         return view('fadmin.monitor.table', $this->data);
     }
@@ -89,6 +91,7 @@ class MonitorController extends Controller
     // 用户近七日更新情况图标展示
     public function picture()
     {
+        LoggingV::info('monitor', '图片展示');
         $this->data['title'] = 'picture';
         return view('fadmin.monitor.picture', $this->data);
     }
@@ -134,6 +137,7 @@ class MonitorController extends Controller
     // 应用日志的展示
     public function logShow()
     {
+        LoggingV::info('monitor', '应用日志');
         $this->data['title'] = trans('logs.log_show');
         return view('fadmin.monitor.logShow', $this->data);
     }

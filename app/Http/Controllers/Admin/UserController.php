@@ -6,11 +6,13 @@ use App\Http\Controllers\CrudController;
 use App\Http\Requests\CrudRequest;
 use App\Http\Requests\UserStoreRequest as StoreRequest;
 use App\Http\Requests\UserUpdateRequest as UpdateRequest;
+use App\Orgs\LoggingV;
 
 class UserController extends CrudController
 {
     public function setup()
     {
+        LoggingV::info('config', '用户管理');
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION

@@ -6,17 +6,19 @@ use App\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\WodasRequest as StoreRequest;
 use App\Http\Requests\WodasRequest as UpdateRequest;
+use App\Orgs\LoggingV;
 
 class WodasController extends CrudController
 {
-    public function __construct()
+    public function setup()
     {
-        parent::__construct();
+        // parent::__construct();
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
+        LoggingV::info('config', 'WODAS管理');
         $this->crud->setModel("App\Models\Wodas");
         $this->crud->setRoute(config('fadmin.base.route_prefix', 'admin').'/wodas');
         $this->crud->setEntityNameStrings(trans('wodas.wodas'), trans('wodas.wodass'));
