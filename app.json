@@ -10,7 +10,7 @@
     "postdeploy": "composer install"
   },
   "addons": [
-    "postgresql"
+    "postgres"
   ],
   "env": {
     "APP_ENV": {
