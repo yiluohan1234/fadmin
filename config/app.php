@@ -185,6 +185,7 @@ return [
         App\Providers\CrudServiceProvider::class,
 
         'Jenssegers\Date\DateServiceProvider',
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 

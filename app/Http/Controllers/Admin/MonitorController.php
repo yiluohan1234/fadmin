@@ -40,9 +40,6 @@ class MonitorController extends Controller
             ->setDateTimeFormat('Y')
             ->addRows($cell);
 
-
-
-
         \Lava::ColumnChart('Stocks', $data, [
           'title' => 'Stock Market Trends'
         ]);

@@ -1,0 +1,94 @@
+{
+  "name": "fadmin",
+  "description": "Laravel + adminlte.",
+  "keywords": [
+    "laravel",
+    "admin"
+  ],
+  "repository": "https://github.com/yiluohan1234/fadmin",
+  "scripts": {
+    "postdeploy": "composer install"
+  },
+  "addons": [
+    "postgresql"
+  ],
+  "env": {
+    "APP_ENV": {
+      "description": "API prefix.",
+      "value": "production",
+      "required": true
+    },
+    "DB_DATABASE": {
+      "description": "Database Name.",
+      "value": "fadmin",
+      "required": false
+    },
+    "DB_HOST": {
+      "description": "Database Host.",
+      "value": "127.0.0.1",
+      "required": false
+    },
+    "DB_USERNAME": {
+      "description": "Database Username.",
+      "value": "root",
+      "required": false
+    },
+    "DB_PASSWORD": {
+      "description": "Database Password.",
+      "value": "secret",
+      "required": false
+    },
+    "MAIL_DRIVER": {
+      "description": "Mail driver (optional).",
+      "value": "smtp",
+      "required": false
+    },
+    "MAIL_ENCRYPTION": {
+      "description": "Mail Encryption (optional).",
+      "value": "tls",
+      "required": false
+    },
+    "MAIL_FROM": {
+      "description": "Email addresss to use when sending mail. (optional)",
+      "value": "laravel@admin.com",
+      "required": false
+    },
+    "MAIL_FROM_NAME": {
+      "description": "Name for the email address. (optional)",
+      "value": "laravel admin",
+      "required": false
+    },
+    "MAIL_HOST": {
+      "description": "Host of the mail server.",
+      "required": false
+    },
+    "MAIL_USERNAME": {
+      "description": "Mail server username.",
+      "required": false
+    },
+    "MAIL_PASSWORD": {
+      "description": "Mail server password.",
+      "required": false
+    },
+    "MAIL_PORT": {
+      "description": "Port of mail server.",
+      "required": false
+    },
+    "APP_LOCALE": {
+      "description": "app language.",
+      "value": "zh-CN",
+      "required": false
+    },
+    "APP_LOG": {
+      "description": "log formatter.",
+      "value": "daily",
+      "required": false
+    },
+
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-multi"
+    }
+  ]
+}
