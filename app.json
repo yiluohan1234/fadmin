@@ -25,9 +25,9 @@
       "value": "production",
       "required": true
     },
-    "DB_CONNECTION": {
-      "description": "DB connection.",
-      "value": "pgsql",
+    "IS_IN_HEROKU": {
+      "description": "is or not in heroku.",
+      "value": "true",
       "required": true
     },
     "MAIL_DRIVER": {
