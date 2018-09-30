@@ -13,6 +13,11 @@
     "heroku-postgresql:hobby-dev"
   ],
   "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
+    "APP_KEY": {
+      "description": "Laravel App Key.",
+      "generator": "secret"
+    },
     "APP_ENV": {
       "description": "API prefix.",
       "value": "production",
@@ -83,7 +88,6 @@
       "description": "log formatter.",
       "value": "daily",
       "required": false
-    },
-
+    }
   }
 }
