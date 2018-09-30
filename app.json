@@ -10,7 +10,7 @@
     "postdeploy": "composer install"
   },
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql:hobby-dev"
   ],
   "env": {
     "APP_ENV": {
