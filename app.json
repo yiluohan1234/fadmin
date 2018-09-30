@@ -25,7 +25,11 @@
       "value": "production",
       "required": true
     },
-
+    "DB_CONNECTION": {
+      "description": "DB connection.",
+      "value": "pgsql",
+      "required": true
+    },
     "MAIL_DRIVER": {
       "description": "Mail driver (optional).",
       "value": "smtp",
