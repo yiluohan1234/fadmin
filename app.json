@@ -85,10 +85,5 @@
       "required": false
     },
 
-  },
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-multi"
-    }
-  ]
+  }
 }
