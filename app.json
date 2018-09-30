@@ -17,16 +17,12 @@
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
     "APP_KEY": {
       "description": "Laravel App Key.",
-      "generator": "secret"
+      "value": "please input",
+      "required": true
     },
     "APP_ENV": {
       "description": "API environment.",
       "value": "production",
-      "required": true
-    },
-    "APP_CIPHER": {
-      "description": "ciphers.",
-      "value": "AES-128-CBC",
       "required": true
     },
     "DB_DATABASE": {
