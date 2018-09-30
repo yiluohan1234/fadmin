@@ -24,6 +24,11 @@
       "value": "production",
       "required": true
     },
+    "APP_NAME": {
+      "description": "APP name.",
+      "value": "fadmin",
+      "required": false
+    },
     "IS_IN_HEROKU": {
       "description": "is or not in heroku.",
       "value": "true",
