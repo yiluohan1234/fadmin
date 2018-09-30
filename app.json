@@ -25,29 +25,7 @@
       "value": "production",
       "required": true
     },
-    // "DB_CONNECTION": {
-    //   "value": "pgsql"
-    // },
-    // "DB_DATABASE": {
-    //   "description": "Database Name.",
-    //   "value": "fadmin",
-    //   "required": false
-    // },
-    // "DB_HOST": {
-    //   "description": "Database Host.",
-    //   "value": "127.0.0.1",
-    //   "required": false
-    // },
-    // "DB_USERNAME": {
-    //   "description": "Database Username.",
-    //   "value": "root",
-    //   "required": false
-    // },
-    // "DB_PASSWORD": {
-    //   "description": "Database Password.",
-    //   "value": "secret",
-    //   "required": false
-    // },
+
     "MAIL_DRIVER": {
       "description": "Mail driver (optional).",
       "value": "smtp",
