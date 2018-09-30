@@ -7,7 +7,7 @@
   ],
   "repository": "https://github.com/yiluohan1234/fadmin",
   "scripts": {
-    "postdeploy": "./initializeHeroku.sh"
+    "postdeploy": "php artisan migrate --force --seed"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
@@ -16,14 +16,17 @@
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
     "APP_KEY": {
-      "description": "Laravel App Key.",
-      "value": "please input",
+      "description": "This should be changed with `heroku config:set APP_KEY=xxx` after the initial deploy. Run `heroku run php artisan key:generate --show` to generate a new app key.",
+      "value": "base64:C7or0bVsDpkAZ47NhqgcDDFyFph4FxRqtM2GshHJbmg=",
       "required": true
     },
     "APP_ENV": {
       "description": "API environment.",
       "value": "production",
       "required": true
+    },
+    "DB_CONNECTION": {
+      "value": "pgsql"
     },
     "DB_DATABASE": {
       "description": "Database Name.",
