@@ -7,7 +7,7 @@
   ],
   "repository": "https://github.com/yiluohan1234/fadmin",
   "scripts": {
-    "postdeploy": "composer install"
+    "postdeploy": "composer install;php artisan migrate --force --seed"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
