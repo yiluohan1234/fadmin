@@ -12,6 +12,7 @@
   "addons": [
     "heroku-postgresql:hobby-dev"
   ],
+  "success_url": "/",
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
     "APP_KEY": {
@@ -19,8 +20,13 @@
       "generator": "secret"
     },
     "APP_ENV": {
-      "description": "API prefix.",
+      "description": "API environment.",
       "value": "production",
+      "required": true
+    },
+    "APP_CIPHER": {
+      "description": "ciphers.",
+      "value": "AES-128-CBC",
       "required": true
     },
     "DB_DATABASE": {
