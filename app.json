@@ -12,7 +12,6 @@
   "addons": [
     "heroku-postgresql:hobby-dev"
   ],
-  "success_url": "/",
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
     "APP_KEY": {
