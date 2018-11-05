@@ -12,7 +12,7 @@ hi, {{$user}}:
         <th>总计</th>
       </thead>
       <tr>
-        <td>O域数据</td>
+        <td>探针数据</td>
         @foreach($odata as $data)
         <td>{{$data->space_size}}M</td>
         @endforeach

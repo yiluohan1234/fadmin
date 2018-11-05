@@ -20,7 +20,7 @@
             <!-- elFinder translation (OPTIONAL) -->
             <script src="{{ asset($dir."/js/i18n/elfinder.$locale.js") }}"></script>
         @endif
-        
+
         <!-- elFinder initialization (REQUIRED) -->
         <script type="text/javascript">
             var FileBrowserDialogue = {
@@ -42,7 +42,7 @@
                     @if($locale)
                         lang: '{{ $locale }}', // locale
                     @endif
-                    customData: { 
+                    customData: {
                         _token: '{{ csrf_token() }}'
                     },
                     url: '{{ route("elfinder.connector") }}',  // connector URL

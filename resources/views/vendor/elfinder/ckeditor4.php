@@ -20,7 +20,7 @@
             <!-- elFinder translation (OPTIONAL) -->
             <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>
         <?php } ?>
-        
+
         <!-- elFinder initialization (REQUIRED) -->
         <script type="text/javascript" charset="utf-8">
             // Helper function to get parameters from the query string.
@@ -39,7 +39,7 @@
                     <?php if($locale){ ?>
                         lang: '<?= $locale ?>', // locale
                     <?php } ?>
-                    customData: { 
+                    customData: {
                         _token: '<?= csrf_token() ?>'
                     },
                     url: '<?= route("elfinder.connector") ?>',  // connector URL

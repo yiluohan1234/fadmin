@@ -95,7 +95,7 @@ class MonitorController extends Controller
     //数据近七日更新情况的数据获取
     public function odata()
     {
-        $odata = Monitor::where("file_type", "O")->orderBy('update_date', 'desc')
+        $odata = Monitor::where("file_type", "tanzhen")->orderBy('update_date', 'desc')
                         ->take(7)
                         ->get();
         $odata_v = array_reverse($odata->toArray(),false);

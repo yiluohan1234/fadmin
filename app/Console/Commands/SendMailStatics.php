@@ -42,7 +42,7 @@ class SendMailStatics extends Command
     {
         $this->info("开始发送邮件...");
         $users = User::all();
-        $odata = Monitor::where("file_type", "O")->orderBy('update_date', 'desc')
+        $odata = Monitor::where("file_type", "tanzhen")->orderBy('update_date', 'desc')
                         ->take(7)
                         ->get();
         $ldata = Monitor::where("file_type", "label")->orderBy('update_date', 'desc')

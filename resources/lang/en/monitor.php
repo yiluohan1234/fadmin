@@ -21,7 +21,7 @@ return [
     'picture'           => 'picture',
     'Stock data update status' => 'Stock data update status',
     'Last 7 days'       => 'Last 7 days',
-    'O_data'            => 'O data',
+    'O_data'            => 'tanzhen data',
     'label_data'        => 'label data',
     'Disk usage'        => 'Disk usage',
     'Total'             => 'Total',

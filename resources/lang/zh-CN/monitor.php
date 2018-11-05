@@ -21,7 +21,7 @@ return [
     'picture'           => '图片',
     'Stock data update status' => '存量数据最更新情况',
     'Last 7 days' => '最近7天更新情况',
-    'O_data'            => 'O域数据',
+    'O_data'            => '探针数据',
     'label_data'        => '标签数据',
     'Disk usage'        => '磁盘使用情况',
     'Total'             => '总量',
