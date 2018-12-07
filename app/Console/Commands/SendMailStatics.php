@@ -48,8 +48,12 @@ class SendMailStatics extends Command
         $ldata = Monitor::where("file_type", "label")->orderBy('update_date', 'desc')
                         ->take(7)
                         ->get();
+        $cdata = Monitor::where("file_type", "changyue")->orderBy('update_date', 'desc')
+                        ->take(7)
+                        ->get();
         $weeklyOdata = 0;
         $weeklyLdata = 0;
+        $weeklyCdata = 0;
 
         foreach ($odata as $data)
         {
@@ -58,6 +62,26 @@ class SendMailStatics extends Command
         foreach ($ldata as $data)
         {
             $weeklyLdata += $data->space_size;
+        }
+        foreach ($cdata as $data)
+        {
+            $weeklyCdata += $data->space_size;
+        }
+        $weeklyOdataNum = 0;
+        $weeklyLdataNum = 0;
+        $weeklyCdataNum = 0;
+
+        foreach ($odata as $data)
+        {
+            $weeklyOdataNum += $data->file_num;
+        }
+        foreach ($ldata as $data)
+        {
+            $weeklyLdataNum += $data->file_num;
+        }
+        foreach ($cdata as $data)
+        {
+            $weeklyCdataNum += $data->file_num;
         }
 
         $to = [];
@@ -75,11 +99,13 @@ class SendMailStatics extends Command
             }
         }
 
-        $message = '互联网运营平台本周数据更新情况如下:';
-        $subject = '互联网运营平台数据更新';
+        $message = '存量运营数据分析平台本周数据更新情况如下:';
+        $subject = '互存量运营数据分析平台数据更新';
         Mail::send(
             'fadmin.monitor.statics',
-            ['content' => $message, 'user' => "all", 'odata' => $odata,'ldata' => $ldata, 'sumOdata' => round($weeklyOdata/1024,2), 'sumLdata'=> round($weeklyLdata/1024,2)],
+            ['content' => $message, 'user' => "all", 'odata' => $odata,'ldata' => $ldata, 'cdata' => $cdata,
+            'sumOdata' => round($weeklyOdata/1024,2), 'sumLdata'=> round($weeklyLdata/1024,2), 'sumCdata' => round($weeklyCdata/1024,2),
+            'sumOdataNum' => $weeklyOdataNum, 'sumLdataNum'=> $weeklyLdataNum, 'sumCdataNum' => $weeklyCdataNum],
             function ($message) use($to, $cc, $subject) {
                 $message->to($to)->cc($cc)->subject($subject);
             }

@@ -3,6 +3,7 @@
 <pre>
 hi, {{$user}}:
     {{$content}}
+    <p>数据大小</p>
     <table class= "table-container" width="90%" id="mytab"  border="1" class="t1">
       <thead>
         <th></th>
@@ -24,6 +25,44 @@ hi, {{$user}}:
         <td>{{$data->space_size}}M</td>
         @endforeach
         <td>{{$sumLdata}}G</td>
+      </tr>
+      <tr>
+        <td>畅越数据</td>
+        @foreach($cdata as $data)
+        <td>{{$data->space_size}}M</td>
+        @endforeach
+        <td>{{$sumCdata}}G</td>
+      </tr>
+    </table>
+    <p>数据数量</p>
+    <table class= "table-container" width="90%" id="mytab"  border="1" class="t1">
+      <thead>
+        <th></th>
+        @foreach($odata as $data)
+        <th>{{$data->update_date}}</th>
+        @endforeach
+        <th>总计</th>
+      </thead>
+      <tr>
+        <td>探针数据</td>
+        @foreach($odata as $data)
+        <td>{{$data->file_num}}个</td>
+        @endforeach
+        <td>{{$sumOdataNum}}个</td>
+      </tr>
+      <tr>
+        <td>标签数据</td>
+        @foreach($ldata as $data)
+        <td>{{$data->file_num}}个</td>
+        @endforeach
+        <td>{{$sumLdataNum}}个</td>
+      </tr>
+      <tr>
+        <td>畅越数据</td>
+        @foreach($cdata as $data)
+        <td>{{$data->file_num}}个</td>
+        @endforeach
+        <td>{{$sumCdataNum}}个</td>
       </tr>
     </table>
 </pre>
