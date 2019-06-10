@@ -23,11 +23,11 @@ https://github.com/yiluohan1234/fadmin
 
 ## Deploy to heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-1. Click deploy button
-2. After build and "successfully deployed", Click Manage App
-3. Go to settings and click "Reveal Config Vars"
-4. Set necessary config for DB based from CLEARDB_DATABASE_URL or from your custom database
-5. Execute migration and db seed with the following commands
+1. 点击`Deploy`按钮
+2. 构建和成功部署后，点击`Manage App`
+3. 转到`settings`里边，点击`Reveal Config Vars`
+4. 为数据库设置必要的配置
+5. 执行以下命令进行数据库的迁移和db seed
 **Database Migration**
 ```
 $ heroku run php artisan migrate --app your_app_name

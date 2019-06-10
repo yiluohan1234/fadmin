@@ -3,7 +3,7 @@
 <pre>
 hi, {{$user}}:
     {{$content}}
-    <p>数据大小</p>
+    <h3>数据大小</h3>
     <table class= "table-container" width="90%" id="mytab"  border="1" class="t1">
       <thead>
         <th></th>
@@ -34,7 +34,7 @@ hi, {{$user}}:
         <td>{{$sumCdata}}G</td>
       </tr>
     </table>
-    <p>数据数量</p>
+    <h3>数据数量</h3>
     <table class= "table-container" width="90%" id="mytab"  border="1" class="t1">
       <thead>
         <th></th>
