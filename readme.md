@@ -28,6 +28,8 @@ https://github.com/yiluohan1234/fadmin
 3. 转到`settings`里边，点击`Reveal Config Vars`
 4. 为数据库设置必要的配置
 5. 执行以下命令进行数据库的迁移和db seed
+
+
 **Database Migration**
 ```
 $ heroku run php artisan migrate --app your_app_name
